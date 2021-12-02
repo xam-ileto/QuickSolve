@@ -56,7 +56,9 @@ i {
   position: fixed;
   width: 75%;
   height: 8%;
-  margin: auto;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
   background-color: #b92b27;
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
