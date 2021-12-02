@@ -4,9 +4,13 @@
   font-family: 'Noto Serif', serif;
 }
 
-.q-subtitle-gray {
+.q-subtitle-lgray {
   font-weight: bold;
   color: #9c9ea0;
+}
+
+.q-subtitle-dgray {
+  color: dimgray;
 }
 
 .q-subtitle-black {
