@@ -8,13 +8,13 @@ body {
   display: flex;
 }
 
-.login-box {
-  width: 30%;
-  height: 40%;
+.main-box {
+  width: 75%;
+  height: 75%;
   margin: auto auto;
   display: flex;
 }
 
-.login-tb {
-  margin: auto;
+.quicksolve {
+  
 }
