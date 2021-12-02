@@ -48,7 +48,12 @@
 
 /* for Font Awesome icons */
 i {
-  color: dimgray;
+  color: white;
+  margin: auto 15px;
+}
+
+body {
+  background-color: #f1f2f2;
 }
 
 /* for header */
@@ -72,7 +77,12 @@ i {
 
 .quicksolve-h1 {
   font-family: 'Noto Serif', serif;
-  display: inline-block;
+  display: inline;
+  margin-left: 15px;
+}
+
+.icons-div {
+  margin-left: auto;
 }
 
 /* for Font Awesome icons */
