@@ -90,3 +90,9 @@ body {
 .page {
   width: 75%;
 }
+
+/* for buttons */
+.btn-submit {
+  margin: auto;
+  display: flex;
+}
