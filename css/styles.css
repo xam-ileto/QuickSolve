@@ -18,6 +18,14 @@
   color: #b92b27;
 }
 
+.q-red-bg {
+  background-color: #b92b27;
+}
+
 .q-gray {
   color: #f1f2f2;
+}
+
+.q-gray-bg {
+  background-color: #f1f2f2;
 }
