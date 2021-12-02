@@ -1,0 +1,23 @@
+/* ******************Quora specifc classes*********************** */
+/* Fonts */
+.q-title {
+  font-family: 'Noto Serif', serif;
+}
+
+.q-subtitle-gray {
+  font-weight: bold;
+  color: #9c9ea0;
+}
+
+.q-subtitle-black {
+  font-weight: bold;
+}
+
+/* colors */
+.q-red {
+  color: #b92b27;
+}
+
+.q-gray {
+  color: #f1f2f2;
+}
