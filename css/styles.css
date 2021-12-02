@@ -30,6 +30,12 @@
   background-color: #f1f2f2;
 }
 
+.background {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+
 /* ******************Document defaults*********************** */
 * {
   /* sets space between text */
