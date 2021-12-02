@@ -29,3 +29,9 @@
 .q-gray-bg {
   background-color: #f1f2f2;
 }
+
+/* ******************Document defaults*********************** */
+* {
+  /* sets space between text */
+  line-height: 1.6;
+}
