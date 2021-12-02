@@ -4,9 +4,13 @@
   font-family: 'Noto Serif', serif;
 }
 
-.q-subtitle-gray {
+.q-subtitle-lgray {
   font-weight: bold;
   color: #9c9ea0;
+}
+
+.q-subtitle-dgray {
+  color: dimgray;
 }
 
 .q-subtitle-black {
@@ -28,6 +32,12 @@
 
 .q-gray-bg {
   background-color: #f1f2f2;
+}
+
+.background {
+  width: 100%;
+  height: 100vh;
+  display: flex;
 }
 
 /* ******************Document defaults*********************** */
