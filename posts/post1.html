@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>QuickSolve</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- insert more custom css files here (if needed) -->
+	<link rel="stylesheet" href="../css/index-styles.css"/>
+	<link rel="stylesheet" href="../css/post-styles.css"/>
+    <!-- tailwind link -->
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font awesome link -->
+    <script
+      src="https://kit.fontawesome.com/0947d2976d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- index main -->
+    <div class="background">
+      <div class="navigation">
+        <div class="quicksolve-div flex">
+		  <!-- Website Name -->  
+          <h1 class="quicksolve-h1 text-5xl">QuickSolve</h1>		
+		  
+		  <!-- Post Button -->  
+		  <a class="post-button" href="../post.html">Ask Question</a>
+		  
+		  <!-- Icons -->
+          <div class="icons-div flex">
+		    <h1 class="login-indicator">Logged In: <a title="View Account Details" href="../login.html">NancyLandgraab</h1></a>
+			<a title="View Account Details" href="../index.html"><i class="fas fa-home fa-2x"></i></a>
+            <a title="View Account Details" href="../login.html"><i class="fas fa-user-circle fa-2x"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-box bg-white rounded-lg">
+		<div class="post rounded-lg">
+			<h1 class="post-title">I'm going to Boracay but I don't know what to do. Do you have any ideas?</h1>
+			<hr class="post-divider">
+			<div class="post-comment">
+				<h1 class="posted-by">Posted by: You</h1>
+				<form method="get" action="../index.html">
+					<button type="submit">Delete Post</button>
+				</form>
+			</div>
+		</div>
+		
+		<div class="comments rounded-lg">
+			<h1 class="comments-title">Comments</h1><i class="fas fa-comments fa-2x"></i>
+			<hr class="post-divider">
+			<div class="post-comment">
+				<h1 class="posted-by"><a title="View Account Details" href="../login.html">Victor_Smith</a> answers:</h1>
+				<p class="posted-by"> Just swim! The beach there is great!</p>
+			</div>
+		</div>
+		
+	  </div>
+    </div>
+  </body>
+</html>
