@@ -18,8 +18,3 @@ View Account Details - Delete account
 
 Based on Quora
 Red tone: #b92b27
-
-# To do
-
-- Login & register- input fill div
-- Login & register- input border
