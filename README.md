@@ -14,6 +14,12 @@ Log In
 User Profile (5)
 View Account Details - Delete account
 
+# Xam todo:
+	add number of posts and comments
+	link pages
+	View account details
+	Not width 100% for edit acct details
+
 # design details
 
 Based on Quora
