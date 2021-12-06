@@ -38,6 +38,11 @@
   background-color: #f1f2f2;
 }
 
+.q-blue {
+  --tw-bg-opacity: 1;
+  color: rgba(59, 130, 246, var(--tw-bg-opacity));
+}
+
 .background {
   background-image: url('../images/background.png');
   background-position: center;
