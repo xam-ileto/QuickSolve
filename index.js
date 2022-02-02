@@ -9,7 +9,7 @@ app.listen(port, function () {
 });
 
 // need to declare where the public folder is
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 // set handlebar as app's view engine
 app.engine(
@@ -22,7 +22,17 @@ app.engine(
 
 app.set('view engine', 'hbs');
 
-// add routing methods
+// routing methods
+// home page
 app.get('/', function (req, res) {
   res.render('index');
+});
+
+// box pages
+app.get('/login', function (req, res) {
+  var data = {
+    layout: 'boxpage.hbs',
+    title: 'Login',
+  };
+  res.render('index', data);
 });
