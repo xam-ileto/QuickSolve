@@ -1,0 +1,23 @@
+{
+  "name": "quicksolve",
+  "version": "1.0.0",
+  "description": "Homepage - view 5 recent posts, with option to log in, with bar to make post\r Individual Post (5) - Delete Post; View comments; Post or Edit <all> comments; Delete comments",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xam-ileto/CCAPDEVMP1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xam-ileto/CCAPDEVMP1/issues"
+  },
+  "homepage": "https://github.com/xam-ileto/CCAPDEVMP1#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2"
+  }
+}
