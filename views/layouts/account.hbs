@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Account</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <!-- insert more custom css files here (if needed) -->
+    <link rel="stylesheet" href="../css/index-styles.css" />
+    <link rel="stylesheet" href="../css/post-styles.css" />
+    <!-- tailwind link -->
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font awesome link -->
+    <script
+      src="https://kit.fontawesome.com/0947d2976d.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- index main -->
+    {{>header}}
+
+      <div class="main-box bg-white rounded-lg">
+        <!-- account page intro -->
+        <div class="text-center">
+          <i class="fas fa-question fa-7x my-5 q-red"></i>
+          <h1 class="q-title text-5xl my-5 q-red">Nancy Landgraab</h1>
+          <p class="q-subtitle-dgray my-2">Posts: 1 • Comments: 1</p>
+          <p class="q-subtitle-dgray my-5 q-blue">
+            <a href="../view-account-details.html">View account details</a>
+          </p>
+          <p class="q-subtitle-dgray my-5 q-blue">
+            <a href="../index.html">Logout</a>
+          </p>
+          <p class="q-subtitle-dgray my-5 q-blue">
+            <a href="../index.html">Delete account</a>
+          </p>
+        </div>
+        <!-- divider line -->
+        <hr class="post-divider" />
+        <!-- account posts and comments -->
+        <h1 class="q-title q-subtitle-dgray text-3xl my-5 text-center q-red">
+          Account Activity
+        </h1>
+        <div class="post rounded-lg">
+          <h1 class="post-title">
+            <a title="View Post" href="../posts/post1.html"
+              >I'm going to Boracay but I don't know what to do. Do you have any
+              ideas?</a
+            >
+          </h1>
+          <hr class="post-divider" />
+          <div class="post-comment">
+            <h1 class="posted-by">
+              Posted by:
+              <a title="View Account Details" href="account1.html"
+                >NancyLandgraab</a
+              >
+            </h1>
+            <a title="Comment" href="../posts/post1.html"
+              ><i class="fas fa-comments fa-2x"></i
+            ></a>
+          </div>
+        </div>
+        <div class="post rounded-lg">
+          <h1 class="post-title">
+            <a title="View Post" href="../posts/post4.html"
+              >Might be rare to find. Try checking Shoppee or Lazada.</a
+            >
+          </h1>
+          <hr class="post-divider" />
+          <div class="post-comment">
+            <h1 class="posted-by">
+              Commented by:
+              <a title="View Account Details" href="account1.html"
+                >NancyLandgraab</a
+              >
+            </h1>
+            <a title="Comment" href="../posts/post4.html"
+              ><i class="far fa-clipboard fa-2x"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

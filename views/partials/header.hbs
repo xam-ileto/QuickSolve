@@ -12,7 +12,7 @@
         <h1 class="login-indicator">
               Logged In:
               <a title="View Account Details" href="accounts/account1.html"
-                >NancyLandgraab</a
+                >{{accountName}}</a
               >
             </h1>
             {{#if isInIndex}}
@@ -27,8 +27,6 @@
               ><i class="fas fa-user-circle fa-2x"></i
             ></a>
       {{else}}
-      
-
             <a title="Login" href="login.html"><h1 class="login-indicator">Currently not logged in</h1></a>
         <a title="Login" href="login.html"><i class="fas fa-user-circle fa-2x"></i></a>
 			<a title="Register" href="register.html"><i class="fas fa-clipboard fa-2x"></i></i></a>

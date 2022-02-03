@@ -34,10 +34,25 @@ app.get('/', function (req, res) {
 app.get('/indexLoggedIn', function (req, res) {
   var data = {
     isLoggedIn: true,
+    // for search icon
     isInIndex: true,
+    accountName: 'NancyLandgraab',
   };
   res.render('index', data);
 });
+
+app.get('/account', function (req, res) {
+  var data = {
+    isLoggedIn: true,
+    // for search icon
+    isInIndex: true,
+    layout: 'account.hbs',
+    accountName: 'NancyLandgraab',
+  };
+  res.render('index', data);
+});
+
+// account details pages
 
 // box pages
 
