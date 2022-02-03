@@ -12,6 +12,9 @@
 >
   <h2 class='mx-3 my-1 q-subtitle-black'>{{title}}</h2>
 </button>
-<p class='q-subtitle-dgray text-center my-3'>
-  <a href='register.html'>No account yet? Register here!</a>
-</p>
+
+{{#if isLogin}}
+  <p class='q-subtitle-dgray text-center my-3'>
+    <a href='register.html'>No account yet? Register here!</a>
+  </p>
+{{/if}}

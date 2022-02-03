@@ -29,10 +29,70 @@ app.get('/', function (req, res) {
 });
 
 // box pages
+
+// big box pages- Login and Register
 app.get('/login', function (req, res) {
   var data = {
     layout: 'boxpage.hbs',
     title: 'Login',
+    isLogin: true,
+    isBigBox: true,
+  };
+  res.render('index', data);
+});
+
+app.get('/register', function (req, res) {
+  var data = {
+    layout: 'boxpage.hbs',
+    title: 'Register',
+    isLogin: false,
+    isBigBox: true,
+  };
+  res.render('index', data);
+});
+
+// small box pages
+// small box- Post and Search
+app.get('/post', function (req, res) {
+  var data = {
+    layout: 'boxpage.hbs',
+    title: 'Post',
+
+    text1: 'Question',
+    text2: 'Post',
+  };
+  res.render('index', data);
+});
+
+app.get('/search', function (req, res) {
+  var data = {
+    layout: 'boxpage.hbs',
+    title: 'Search',
+
+    text1: 'Search',
+    text2: 'Search',
+  };
+  res.render('index', data);
+});
+// small box- edit post and edit comment
+app.get('/editpost', function (req, res) {
+  var data = {
+    layout: 'boxpage.hbs',
+    title: 'Edit Post',
+
+    text1: 'Edit Post',
+    text2: 'Post',
+  };
+  res.render('index', data);
+});
+
+app.get('/editcomment', function (req, res) {
+  var data = {
+    layout: 'boxpage.hbs',
+    title: 'Edit Comment',
+
+    text1: 'Edit Comment',
+    text2: 'Post',
   };
   res.render('index', data);
 });

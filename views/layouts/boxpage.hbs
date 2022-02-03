@@ -2,7 +2,7 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
-    <title>Login</title>
+    <title>{{title}}</title>
     <meta name='description' content='' />
     <meta name='viewport' content='width=device-width, initial-scale=1' />
     <link rel='stylesheet' href='./css/styles.css' />
@@ -30,7 +30,12 @@
           <h2 class='q-subtitle-dgray mx-32 my-1 q-subtitle-black text-center'>
             Let Your questions be answered!
           </h2>
+            {{#if isBigBox}}
             {{>user-login this}}
+            {{else}}
+            {{>user-search this}}
+            {{/if}}
+            
         </div>
       </div>
     </div>
