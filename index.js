@@ -53,6 +53,31 @@ app.get('/account', function (req, res) {
 });
 
 // account details pages
+app.get('/editAccount', function (req, res) {
+  var data = {
+    title: 'Edit Account',
+    isLoggedIn: true,
+    // for search icon
+    isInIndex: true,
+    isEdit: true,
+    layout: 'account-details.hbs',
+    accountName: 'NancyLandgraab',
+  };
+  res.render('index', data);
+});
+
+app.get('/viewAccount', function (req, res) {
+  var data = {
+    title: 'View Account',
+    isLoggedIn: true,
+    // for search icon
+    isInIndex: true,
+    isEdit: false,
+    layout: 'account-details.hbs',
+    accountName: 'NancyLandgraab',
+  };
+  res.render('index', data);
+});
 
 // box pages
 
