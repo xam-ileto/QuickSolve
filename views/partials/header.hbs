@@ -6,9 +6,33 @@
 		  <a class="post-button" href="login.html">Ask Question</a>
           
 		  <div class="icons-div flex">
-		    <a title="Login" href="login.html"><h1 class="login-indicator">Currently not logged in</h1></a>
-            <a title="Login" href="login.html"><i class="fas fa-user-circle fa-2x"></i></a>
+		    
+            
+        {{#if isLoggedIn}}
+        <h1 class="login-indicator">
+              Logged In:
+              <a title="View Account Details" href="accounts/account1.html"
+                >NancyLandgraab</a
+              >
+            </h1>
+            {{#if isInIndex}}
+            <a title="Search" href="search.html">
+              <i class="fas fa-search fa-2x"></i
+            ></a>
+            {{/if}}
+            <a title="Home" href="index-logged-in.html"
+              ><i class="fas fa-home fa-2x"></i
+            ></a>
+        <a title="View Account Details" href="accounts/account1.html"
+              ><i class="fas fa-user-circle fa-2x"></i
+            ></a>
+      {{else}}
+      
+
+            <a title="Login" href="login.html"><h1 class="login-indicator">Currently not logged in</h1></a>
+        <a title="Login" href="login.html"><i class="fas fa-user-circle fa-2x"></i></a>
 			<a title="Register" href="register.html"><i class="fas fa-clipboard fa-2x"></i></i></a>
+        {{/if}}
           </div>
         </div>
       </div>

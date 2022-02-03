@@ -23,9 +23,20 @@ app.engine(
 app.set('view engine', 'hbs');
 
 // routing methods
-// home page
+// main pages
 app.get('/', function (req, res) {
-  res.render('index');
+  var data = {
+    isLoggedIn: false,
+  };
+  res.render('index', data);
+});
+
+app.get('/indexLoggedIn', function (req, res) {
+  var data = {
+    isLoggedIn: true,
+    isInIndex: true,
+  };
+  res.render('index', data);
 });
 
 // box pages
