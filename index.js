@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 const Account = require('./database/models/Account');
 const Post = require('./database/models/Post');
+const accountRouter = require('./routes/account-router.js');
 
 const app = express();
 const port = 3000;
@@ -46,17 +47,6 @@ app.get('/index-logged-in', function (req, res) {
     isLoggedIn: true,
     // for search icon
     isInIndex: true,
-    accountName: 'NancyLandgraab',
-  };
-  res.render('index', data);
-});
-
-app.get('/account', function (req, res) {
-  var data = {
-    isLoggedIn: true,
-    // for search icon
-    isInIndex: true,
-    layout: 'account.hbs',
     accountName: 'NancyLandgraab',
   };
   res.render('index', data);
@@ -166,52 +156,4 @@ app.get('/editcomment', function (req, res) {
   res.render('index', data);
 });
 
-// -------------------POST AND GET REQUESTS--------------
-// ***accounts***
-app.get('/create-account', (req, res) => {
-  sampleAccount = {
-    accountName: 'test',
-    password: '1234',
-  };
-
-  Account.create(sampleAccount, (error, post) => {
-    // send user to login once account created
-    res.redirect('/login');
-  });
-});
-
-app.get('/delete-account', (req, res) => {
-  name = 'test';
-
-  Account.findOneAndDelete({ accountName: name }, (error, post) => {
-    res.redirect('/login');
-  });
-});
-
-app.get('/modify-account-name', (req, res) => {
-  oldName = 'test';
-  newName = 'newtest';
-
-  Account.findOneAndUpdate(
-    { accountName: oldName },
-    { accountName: newName },
-    (error, post) => {
-      res.redirect('/login');
-    }
-  );
-});
-
-app.get('/modify-account-password', (req, res) => {
-  accountName = 'newtest';
-  password = '5678';
-
-  Account.findOneAndUpdate(
-    { accountName: accountName },
-    { password: password },
-    (error, post) => {
-      res.redirect('/login');
-    }
-  );
-});
-
-// ***posts***
+app.use('/account', accountRouter);
