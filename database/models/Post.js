@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
+  title: String,
   accountName: String,
-  password: String,
   //   comments are represented as an array in Post
   comments: {
-    type: String,
+    comment: String,
+    accountName: String,
   },
 });
 
