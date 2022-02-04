@@ -1,5 +1,8 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
+const mongoose = require('mongoose');
+const Account = require('./database/models/Account');
+const Post = require('./database/models/Post');
 
 const app = express();
 const port = 3000;
@@ -8,6 +11,7 @@ app.listen(port, function () {
   console.log(`Example app listening on port ${port}`);
 });
 
+// --------HANDLEBARS SET UP-----------------
 // need to declare where the public folder is
 app.use(express.static(__dirname + '/public'));
 
@@ -22,7 +26,13 @@ app.engine(
 
 app.set('view engine', 'hbs');
 
-// routing methods
+// ------------------MONGODB SET UP-----------------------
+// accounts db name: quicksolve-accounts
+mongoose.connect('mongodb+srv://admin:1234@start.fowxh.mongodb.net/quicksolve');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// ------------------HANDLEBARS ROUTING---------------------
 // main pages
 app.get('/', function (req, res) {
   var data = {
@@ -31,7 +41,7 @@ app.get('/', function (req, res) {
   res.render('index', data);
 });
 
-app.get('/indexLoggedIn', function (req, res) {
+app.get('/index-logged-in', function (req, res) {
   var data = {
     isLoggedIn: true,
     // for search icon
@@ -61,7 +71,7 @@ app.get('/post', (req, res) => {
 });
 
 // account details pages
-app.get('/editAccount', function (req, res) {
+app.get('/edit-account', function (req, res) {
   var data = {
     title: 'Edit Account',
     isLoggedIn: true,
@@ -74,7 +84,7 @@ app.get('/editAccount', function (req, res) {
   res.render('index', data);
 });
 
-app.get('/viewAccount', function (req, res) {
+app.get('/view-account', function (req, res) {
   var data = {
     title: 'View Account',
     isLoggedIn: true,
@@ -155,3 +165,19 @@ app.get('/editcomment', function (req, res) {
   };
   res.render('index', data);
 });
+
+// -------------------POST AND GET REQUESTS--------------
+// ***accounts***
+app.get('/create-account', (req, res) => {
+  sampleAccount = {
+    accountName: 'test',
+    password: '1234',
+  };
+
+  Account.create(sampleAccount, (error, post) => {
+    // send user to login once account created
+    res.redirect('/login');
+  });
+});
+
+// ***posts***
