@@ -184,7 +184,6 @@ app.get('/delete-account', (req, res) => {
   name = 'test';
 
   Account.findOneAndDelete({ accountName: name }, (error, post) => {
-    // send user to login once account created
     res.redirect('/login');
   });
 });
@@ -197,21 +196,19 @@ app.get('/modify-account-name', (req, res) => {
     { accountName: oldName },
     { accountName: newName },
     (error, post) => {
-      // send user to login once account created
       res.redirect('/login');
     }
   );
 });
 
 app.get('/modify-account-password', (req, res) => {
-  accountName = 't';
+  accountName = 'newtest';
   password = '5678';
 
   Account.findOneAndUpdate(
     { accountName: accountName },
     { password: password },
     (error, post) => {
-      // send user to login once account created
       res.redirect('/login');
     }
   );
