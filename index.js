@@ -52,6 +52,14 @@ app.get('/account', function (req, res) {
   res.render('index', data);
 });
 
+// post pages
+app.get('/post', (req, res) => {
+  var data = {
+    layout: 'post.hbs',
+  };
+  res.render('index', data);
+});
+
 // account details pages
 app.get('/editAccount', function (req, res) {
   var data = {
