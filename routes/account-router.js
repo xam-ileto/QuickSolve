@@ -1,7 +1,8 @@
 const express = require('express');
 var router = express.Router();
 
-const Account = require('../database/models/Account');
+// const Account = require('../database/models/Account');
+const accountController = require('../controller/account-controller');
 
 router.get('/page', function (req, res) {
   var data = {
@@ -14,24 +15,21 @@ router.get('/page', function (req, res) {
   res.render('index', data);
 });
 
-router.get('/create', (req, res) => {
-  sampleAccount = {
-    accountName: 'test',
-    password: '1234',
-  };
+// router.get('/create', (req, res) => {
+//   sampleAccount = {
+//     accountName: 'test',
+//     password: '1234',
+//   };
 
-  Account.create(sampleAccount, (error, post) => {
-    // send user to login once account created
-    res.redirect('/login');
-  });
-});
+//   Account.create(sampleAccount, (error, post) => {
+//     // send user to login once account created
+//     res.redirect('/login');
+//   });
+// });
+router.get('/create', accountController.create);
 
 router.get('/delete', (req, res) => {
   name = 'test';
-
-  Account.findOneAndDelete({ accountName: name }, (error, post) => {
-    res.redirect('/login');
-  });
 });
 
 router.get('/modify-name', (req, res) => {

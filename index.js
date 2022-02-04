@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
-const Account = require('./database/models/Account');
+// const Account = require('./database/models/Account');
 const Post = require('./database/models/Post');
 const accountRouter = require('./routes/account-router.js');
 
@@ -28,8 +28,6 @@ app.engine(
 app.set('view engine', 'hbs');
 
 // ------------------MONGODB SET UP-----------------------
-// accounts db name: quicksolve-accounts
-mongoose.connect('mongodb+srv://admin:1234@start.fowxh.mongodb.net/quicksolve');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
