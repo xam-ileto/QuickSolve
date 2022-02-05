@@ -28,3 +28,12 @@ exports.findOneByAccountName = async function (name) {
     console.log(err);
   }
 };
+
+exports.findOneById = async function (id) {
+  try {
+    result = await Account.findOne({ _id: id });
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+};

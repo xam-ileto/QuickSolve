@@ -10,8 +10,14 @@ exports.create = function (req, res) {
   res.redirect('/login');
 };
 
-exports.search = async function (req, res) {
+exports.findOneByAccountName = async function (req, res) {
   temp = 'x';
   result = await accountModel.findOneByAccountName(temp);
+  return result;
+};
+
+exports.findOneById = async function (req, res) {
+  temp = '61fe5587b0987eed164f3917';
+  result = await accountModel.findOneById(temp);
   return result;
 };

@@ -11,7 +11,7 @@ const accountController = require('../controller/account-controller');
 router.get('/', loginController.show);
 
 router.get('/search', async () => {
-  result = await accountController.search();
+  result = await accountController.findOneById();
 });
 
 module.exports = router;
