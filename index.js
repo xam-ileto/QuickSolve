@@ -3,7 +3,9 @@ const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
 // const Account = require('./database/models/Account');
 const Post = require('./database/models/Post');
+
 const accountRouter = require('./routes/account-router.js');
+const registerRouter = require('./routes/register-router.js');
 
 const app = express();
 const port = 3000;
@@ -98,15 +100,15 @@ app.get('/login', function (req, res) {
   res.render('index', data);
 });
 
-app.get('/register', function (req, res) {
-  var data = {
-    layout: 'boxpage.hbs',
-    title: 'Register',
-    isLogin: false,
-    isBigBox: true,
-  };
-  res.render('index', data);
-});
+// app.get('/register', function (req, res) {
+//   var data = {
+//     layout: 'boxpage.hbs',
+//     title: 'Register',
+//     isLogin: false,
+//     isBigBox: true,
+//   };
+//   res.render('index', data);
+// });
 
 // small box pages
 // small box- Post and Search
@@ -155,3 +157,4 @@ app.get('/editcomment', function (req, res) {
 });
 
 app.use('/account', accountRouter);
+app.use('/register', registerRouter);

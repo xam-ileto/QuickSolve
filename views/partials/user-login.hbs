@@ -1,14 +1,26 @@
 <h2 class='mt-3 q-subtitle-black'>{{title}}</h2>
 <hr class='my-3 q-gray' />
-<p>Username</p>
-<input class='rounded-md border-black input-login' type='text' />
-<p>Password</p>
-<input class='rounded-md border-black input-login' type='text' />
-<br />
+
+<form action='/register/submit' method='post' id='submit' onsubmit=''>
+  <p>Username</p>
+  <input
+    class='rounded-md border-black input-login'
+    type='text'
+    name='accountName'
+  />
+  <p>Password</p>
+  <input
+    class='rounded-md border-black input-login'
+    type='text'
+    name='password'
+  />
+  <br />
+</form>
 <button
   class='btn-submit bg-blue-300 rounded-md mt-3'
-  onclick="location.href='./index-logged-in.html'"
-  type='button'
+  name='submit'
+  type='submit'
+  form='submit'
 >
   <h2 class='mx-3 my-1 q-subtitle-black'>{{title}}</h2>
 </button>

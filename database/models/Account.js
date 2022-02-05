@@ -12,7 +12,6 @@ const Account = mongoose.model('Account', AccountSchema);
 
 // module.exports = Account;
 exports.create = function (sampleData) {
-  console.log(typeof sampleData);
   Account.create(sampleData, (error, post) => {
     if (error) {
       console.log(error);
