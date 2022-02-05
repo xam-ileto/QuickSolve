@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/xam-ileto/CCAPDEVMP1#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.2",
     "express-handlebars": "^6.0.2",
     "mongodb": "^4.3.1",

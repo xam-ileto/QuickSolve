@@ -1,4 +1,5 @@
 const accountModel = require('../database/models/account');
+const bcrypt = require('bcrypt');
 
 exports.show = function (req, res) {
   var data = {
@@ -11,6 +12,21 @@ exports.show = function (req, res) {
 };
 
 exports.create = function (req, res) {
-  accountModel.create(req.body);
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(req.body.password, salt, (err, hash) => {
+      console.log(hash);
+
+      data = {
+        accountName: req.body.accountName,
+        password: hash,
+      };
+
+      accountModel.create(data);
+    });
+  });
+
+  // req.body.password =
+  // console.log(req.body.password)
+  // accountModel.create(req.body);
   res.redirect('/login');
 };
