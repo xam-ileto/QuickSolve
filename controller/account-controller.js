@@ -12,6 +12,6 @@ exports.create = function (req, res) {
 
 exports.search = async function (req, res) {
   temp = 'x';
-  result = await accountModel.findOne(temp);
+  result = await accountModel.findOneByAccountName(temp);
   return result;
 };

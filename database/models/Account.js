@@ -20,23 +20,7 @@ exports.create = function (sampleData) {
 };
 
 // for getting a user by accountName
-// exports.findOne = function (name, callback) {
-//   // console.log(Account.db.name);
-//   Account.findOne({ accountName: name }, (error, post) => {
-//     console.log(post);
-
-//     if (error) {
-//       return callback(err);
-//     } else if (post) {
-//       return callback(null, post);
-//     } else {
-//       return callback();
-//     }
-//   });
-
-// };
-
-exports.findOne = async function (name) {
+exports.findOneByAccountName = async function (name) {
   try {
     result = await Account.findOne({ accountName: name });
     return result;
