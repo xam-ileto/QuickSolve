@@ -1,11 +1,17 @@
 const express = require('express');
-var router = express.Router();
+const router = express.Router();
+const passport = require('passport');
+const initializePassport = require('../passport-config.js');
 
 const loginController = require('../controller/login-controller');
+const accountController = require('../controller/account-controller');
+
+// initializePassport(passport);
 
 router.get('/', loginController.show);
 
-// this function will be changed
-// router.post('/submit', loginController.create);
+router.get('/search', async () => {
+  result = await accountController.search();
+});
 
 module.exports = router;
