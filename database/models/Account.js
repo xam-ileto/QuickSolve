@@ -10,7 +10,7 @@ const AccountSchema = new mongoose.Schema({
 
 const Account = mongoose.model('Account', AccountSchema);
 
-// module.exports = Account;
+// for creating an account
 exports.create = function (sampleData) {
   Account.create(sampleData, (error, post) => {
     if (error) {

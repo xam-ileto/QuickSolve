@@ -15,17 +15,6 @@ router.get('/page', function (req, res) {
   res.render('index', data);
 });
 
-// router.get('/create', (req, res) => {
-//   sampleAccount = {
-//     accountName: 'test',
-//     password: '1234',
-//   };
-
-//   Account.create(sampleAccount, (error, post) => {
-//     // send user to login once account created
-//     res.redirect('/login');
-//   });
-// });
 router.get('/create', accountController.create);
 
 router.get('/delete', (req, res) => {

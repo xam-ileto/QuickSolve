@@ -6,6 +6,7 @@ const Post = require('./database/models/Post');
 
 const accountRouter = require('./routes/account-router.js');
 const registerRouter = require('./routes/register-router.js');
+const loginRouter = require('./routes/login-router.js');
 
 const app = express();
 const port = 3000;
@@ -158,3 +159,4 @@ app.get('/editcomment', function (req, res) {
 
 app.use('/account', accountRouter);
 app.use('/register', registerRouter);
+app.use('/login', loginRouter);
