@@ -25,8 +25,5 @@ exports.create = function (req, res) {
     });
   });
 
-  // req.body.password =
-  // console.log(req.body.password)
-  // accountModel.create(req.body);
   res.redirect('/login');
 };
