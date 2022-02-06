@@ -20,7 +20,7 @@ const Post = require('./database/models/Post');
 
 const accountRouter = require('./routes/account-router.js');
 const registerRouter = require('./routes/register-router.js');
-const loginRouter = require('./routes/login-router.js');
+const postRouter = require('./routes/post-router.js');
 
 const app = express();
 const port = 3000;
@@ -203,12 +203,10 @@ app.get('/', loginController.show);
 
 app.use('/account', accountRouter);
 app.use('/register', registerRouter);
-// app.use('/login', loginRouter);
+app.use('/post', postRouter);
 
 function checkAuthenticated(req, res, next) {
-  console.log('current user: ' + req.user);
   if (req.isAuthenticated()) {
-    console.log('you are logged in');
     return next();
   }
 
@@ -216,8 +214,6 @@ function checkAuthenticated(req, res, next) {
 }
 
 function checkNotAuthenticated(req, res, next) {
-  console.log('check not auth');
-  console.log('current user: ' + req.user);
   if (req.isAuthenticated()) {
     return res.redirect('/');
   }
