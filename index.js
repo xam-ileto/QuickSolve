@@ -7,7 +7,7 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
-// const accountController = require('./controller/account-controller.js');
+const accountController = require('./controller/account-controller.js');
 const loginController = require('./controller/login-controller.js');
 
 const LocalStrategy = require('passport-local').Strategy;
@@ -83,14 +83,14 @@ app.get('/', function (req, res) {
 //   res.render('index', data);
 // });
 
-app.get('/index-logged-in', checkAuthenticated, (req, res) => {
-  console.log('in index');
-  console.log(req.session);
+app.get('/index-logged-in', checkAuthenticated, async (req, res) => {
+  accountName = await accountController.findOneById(req.session.passport.user);
+  accountName = accountName.accountName;
   var data = {
     isLoggedIn: true,
     // for search icon
     isInIndex: true,
-    accountName: 'NancyLandgraab',
+    accountName: accountName,
   };
   res.render('index', data);
 });
@@ -142,16 +142,6 @@ app.get('/login', function (req, res) {
   };
   res.render('index', data);
 });
-
-// app.get('/register', function (req, res) {
-//   var data = {
-//     layout: 'boxpage.hbs',
-//     title: 'Register',
-//     isLogin: false,
-//     isBigBox: true,
-//   };
-//   res.render('index', data);
-// });
 
 // small box pages
 // small box- Post and Search
@@ -208,17 +198,6 @@ app.post(
     failureFlash: true,
   })
 );
-
-// app.post(
-//   '/login',
-//   checkNotAuthenticated,
-//   passport.authenticate('local', function (req, res) {
-//     console.log('in body');
-//     console.log(req.body);
-//     console.log(req);
-//     console.log(req.session);
-//   })
-// );
 
 app.get('/', loginController.show);
 
