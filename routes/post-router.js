@@ -11,6 +11,10 @@ router.get('/edit-comment', postController.show);
 
 router.get('/edit-post', postController.show);
 
-router.post('/ask', postController.post);
+router.post('/question', postController.post);
+
+router.post('/post/post/ask/qunestion', () => {
+  console.log('here');
+});
 
 module.exports = router;

@@ -29,5 +29,6 @@ exports.show = function (req, res) {
 };
 
 exports.post = function (req, res) {
-  console.log('hi');
+  console.log('submitting question');
+  console.log(req.body.content);
 };

@@ -3,14 +3,14 @@ function formAction() {
   form = $('#submit');
 
   if (url.includes('ask')) {
-    form.attr('action', 'post/ask');
+    form.attr('action', '/post/question');
   } else if (url.includes('edit-post')) {
-    form.attr('action', 'post/edit-post');
+    form.attr('action', '/edit-post');
   } else if (url.includes('edit-comment')) {
-    form.attr('action', 'post/edit-comment');
+    form.attr('action', '/edit-comment');
   } else {
     //if searching
-    form.attr('action', 'post/search');
+    form.attr('action', '/search');
   }
 }
 
