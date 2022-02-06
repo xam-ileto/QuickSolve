@@ -3,7 +3,7 @@
 exports.show = function (req, res) {
   // TO DO
   console.log(req.originalUrl);
-  console.log(req);
+  // console.log(req);
 
   var data = {
     layout: 'boxpage.hbs',
@@ -19,7 +19,9 @@ exports.show = function (req, res) {
   } else {
     data.buttonText = 'Post';
 
-    if (url.includes('edit-post')) {
+    if (url.includes('ask')) {
+      data.title = 'Ask Question';
+    } else if (url.includes('edit-post')) {
       data.title = 'Edit Post';
     } else {
       // if url is edit-comment
