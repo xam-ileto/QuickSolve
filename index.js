@@ -139,6 +139,7 @@ app.get('/login', function (req, res) {
     title: 'Login',
     isLogin: true,
     isBigBox: true,
+    isLoginOrRegister: true,
   };
   res.render('index', data);
 });

@@ -10,6 +10,5 @@ function formAction() {
 }
 
 $(document).ready(() => {
-  console.log('test');
   formAction();
 });
