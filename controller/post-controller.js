@@ -1,4 +1,5 @@
 const postModel = require('../database/models/post');
+const accountModel = require('../database/models/account');
 
 exports.show = function (req, res) {
   var data = {
@@ -28,7 +29,16 @@ exports.show = function (req, res) {
   res.render('index', data);
 };
 
-exports.post = function (req, res) {
+exports.post = async function (req, res) {
   console.log('submitting question');
-  console.log(req.body.content);
+  // console.log(req.user);
+  // console.log(req.user.accountName);
+  temp = req.user.accountName;
+
+  var data = {
+    title: req.body.content,
+    accountName: req.user.accountName,
+  };
+
+  postModel.create(data);
 };
