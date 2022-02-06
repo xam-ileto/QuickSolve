@@ -17,8 +17,8 @@ exports.findOneByAccountName = async function (name, req, res) {
   return result;
 };
 
-exports.findOneById = async function (req, res) {
+exports.findOneById = async function (id, req, res) {
   temp = '61febb7df260fe7d25ecda4b';
-  result = await accountModel.findOneById(temp);
+  result = await accountModel.findOneById(id);
   return result;
 };

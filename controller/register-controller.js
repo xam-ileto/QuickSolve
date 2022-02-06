@@ -1,4 +1,4 @@
-// const accountModel = require('../database/models/account');
+const accountModel = require('../database/models/account');
 const bcrypt = require('bcrypt');
 
 exports.show = function (req, res) {

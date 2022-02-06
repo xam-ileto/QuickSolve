@@ -73,7 +73,19 @@ app.get('/', function (req, res) {
   res.render('index', data);
 });
 
-app.get('/index-logged-in', function (req, res) {
+// app.get('/index-logged-in', function (req, res) {
+//   var data = {
+//     isLoggedIn: true,
+//     // for search icon
+//     isInIndex: true,
+//     accountName: 'NancyLandgraab',
+//   };
+//   res.render('index', data);
+// });
+
+app.get('/index-logged-in', checkAuthenticated, (req, res) => {
+  console.log('in index');
+  console.log(req.session);
   var data = {
     isLoggedIn: true,
     // for search icon
@@ -191,11 +203,22 @@ app.post(
   '/login',
   checkNotAuthenticated,
   passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/index-logged-in',
     failureRedirect: '/login',
     failureFlash: true,
   })
 );
+
+// app.post(
+//   '/login',
+//   checkNotAuthenticated,
+//   passport.authenticate('local', function (req, res) {
+//     console.log('in body');
+//     console.log(req.body);
+//     console.log(req);
+//     console.log(req.session);
+//   })
+// );
 
 app.get('/', loginController.show);
 
@@ -204,7 +227,9 @@ app.use('/register', registerRouter);
 // app.use('/login', loginRouter);
 
 function checkAuthenticated(req, res, next) {
+  console.log('current user: ' + req.user);
   if (req.isAuthenticated()) {
+    console.log('you are logged in');
     return next();
   }
 
@@ -212,6 +237,8 @@ function checkAuthenticated(req, res, next) {
 }
 
 function checkNotAuthenticated(req, res, next) {
+  console.log('check not auth');
+  console.log('current user: ' + req.user);
   if (req.isAuthenticated()) {
     return res.redirect('/');
   }
