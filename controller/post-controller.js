@@ -1,4 +1,4 @@
-// const postModel = require('../database/models/post');
+const postModel = require('../database/models/post');
 
 exports.show = function (req, res) {
   var data = {

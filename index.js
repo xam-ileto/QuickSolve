@@ -2,7 +2,6 @@
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
-const bcrypt = require('bcrypt');
 const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
@@ -10,13 +9,8 @@ const methodOverride = require('method-override');
 const accountController = require('./controller/account-controller.js');
 const loginController = require('./controller/login-controller.js');
 
-const LocalStrategy = require('passport-local').Strategy;
-
 const express = require('express');
 const exphbs = require('express-handlebars');
-const mongoose = require('mongoose');
-// const Account = require('./database/models/Account');
-const Post = require('./database/models/Post');
 
 const accountRouter = require('./routes/account-router.js');
 const registerRouter = require('./routes/register-router.js');
