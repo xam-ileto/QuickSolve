@@ -1,11 +1,11 @@
 function formAction() {
   url = window.location.href;
-  form = $('#submit').get();
+  form = $('#submit');
 
   if (url.includes('login')) {
-    form.action = '/login/submit';
+    form.attr('action', 'login');
   } else {
-    form.action = '/login/register';
+    form.attr('action', 'register/submit');
   }
 }
 

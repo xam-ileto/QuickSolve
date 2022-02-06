@@ -1,3 +1,17 @@
+// STUFF FOR PASSPORT
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+const flash = require('express-flash');
+const session = require('express-session');
+const methodOverride = require('method-override');
+// const accountController = require('./controller/account-controller.js');
+const loginController = require('./controller/login-controller.js');
+
+const LocalStrategy = require('passport-local').Strategy;
+
 const express = require('express');
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose');
@@ -14,6 +28,22 @@ const port = 3000;
 app.listen(port, function () {
   console.log(`Example app listening on port ${port}`);
 });
+
+// MORE AUTH SET UP
+const initializePassport = require('./passport-config');
+initializePassport(passport);
+
+app.use(flash());
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(methodOverride('_method'));
 
 // --------HANDLEBARS SET UP-----------------
 // need to declare where the public folder is
@@ -157,6 +187,33 @@ app.get('/editcomment', function (req, res) {
   res.render('index', data);
 });
 
+app.post(
+  '/login',
+  checkNotAuthenticated,
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true,
+  })
+);
+
+app.get('/', loginController.show);
+
 app.use('/account', accountRouter);
 app.use('/register', registerRouter);
-app.use('/login', loginRouter);
+// app.use('/login', loginRouter);
+
+function checkAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+
+  res.redirect('/login');
+}
+
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/');
+  }
+  next();
+}

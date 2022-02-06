@@ -10,14 +10,15 @@ exports.create = function (req, res) {
   res.redirect('/login');
 };
 
-exports.findOneByAccountName = async function (req, res) {
-  temp = 'x';
-  result = await accountModel.findOneByAccountName(temp);
+exports.findOneByAccountName = async function (name, req, res) {
+  // name = 'xxx';
+  console.log('received name: ' + name);
+  result = await accountModel.findOneByAccountName(name);
   return result;
 };
 
 exports.findOneById = async function (req, res) {
-  temp = '61fe5587b0987eed164f3917';
+  temp = '61febb7df260fe7d25ecda4b';
   result = await accountModel.findOneById(temp);
   return result;
 };

@@ -1,6 +1,3 @@
-const accountModel = require('../database/models/account');
-const bcrypt = require('bcrypt');
-
 exports.show = function (req, res) {
   var data = {
     layout: 'boxpage.hbs',
@@ -10,3 +7,5 @@ exports.show = function (req, res) {
   };
   res.render('index', data);
 };
+
+exports.authenticate = function (req, res) {};
