@@ -10,6 +10,26 @@ exports.create = function (req, res) {
   res.redirect('/login');
 };
 
+exports.showDetails = function (req, res) {
+  var data = {
+    layout: 'account-details.hbs',
+    title: '',
+    isEdit: true,
+  };
+
+  url = req.originalUrl;
+
+  if (url.includes('view')) {
+    data.title = 'View Account';
+  } else {
+    // if url is edit details
+    data.title = 'Edit Account';
+    data.isEdit = false;
+  }
+
+  res.render('index', data);
+};
+
 exports.findOneByAccountName = async function (name, req, res) {
   // name = 'xxx';
   console.log('received name: ' + name);

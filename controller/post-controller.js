@@ -1,10 +1,6 @@
 // require post model
 
 exports.show = function (req, res) {
-  // TO DO
-  console.log(req.originalUrl);
-  // console.log(req);
-
   var data = {
     layout: 'boxpage.hbs',
     isBigBox: false,

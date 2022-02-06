@@ -4,6 +4,14 @@ var router = express.Router();
 // const Account = require('../database/models/Account');
 const accountController = require('../controller/account-controller');
 
+router.get('/create', accountController.create);
+
+router.get('/view-details', accountController.showDetails);
+
+router.get('/edit-details', accountController.showDetails);
+
+module.exports = router;
+
 // router.get('/page', function (req, res) {
 //   var data = {
 //     isLoggedIn: true,
@@ -14,8 +22,6 @@ const accountController = require('../controller/account-controller');
 //   };
 //   res.render('index', data);
 // });
-
-router.get('/create', accountController.create);
 
 // router.get('/delete', (req, res) => {
 //   name = 'test';
@@ -46,5 +52,3 @@ router.get('/create', accountController.create);
 //     }
 //   );
 // });
-
-module.exports = router;
