@@ -7,6 +7,7 @@ exports.show = function (req, res) {
     title: 'Register',
     isLogin: false,
     isBigBox: true,
+    isLoginOrRegister: true,
   };
   res.render('index', data);
 };

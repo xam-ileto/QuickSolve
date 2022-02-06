@@ -1,4 +1,4 @@
-// require post model
+// const postModel = require('../database/models/post');
 
 exports.show = function (req, res) {
   var data = {
@@ -26,4 +26,8 @@ exports.show = function (req, res) {
   }
 
   res.render('index', data);
+};
+
+exports.post = function (req, res) {
+  console.log('hi');
 };

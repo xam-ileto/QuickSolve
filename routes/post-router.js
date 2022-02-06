@@ -11,4 +11,6 @@ router.get('/edit-comment', postController.show);
 
 router.get('/edit-post', postController.show);
 
+router.post('/ask', postController.post);
+
 module.exports = router;
