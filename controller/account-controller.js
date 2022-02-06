@@ -14,7 +14,7 @@ exports.showDetails = function (req, res) {
   var data = {
     layout: 'account-details.hbs',
     title: '',
-    isEdit: true,
+    isEdit: false,
   };
 
   url = req.originalUrl;
@@ -24,7 +24,7 @@ exports.showDetails = function (req, res) {
   } else {
     // if url is edit details
     data.title = 'Edit Account';
-    data.isEdit = false;
+    data.isEdit = true;
   }
 
   res.render('index', data);
