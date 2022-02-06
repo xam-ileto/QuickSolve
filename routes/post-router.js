@@ -7,4 +7,8 @@ router.get('/ask', postController.show);
 
 router.get('/search', postController.show);
 
+router.get('/edit-comment', postController.show);
+
+router.get('/edit-post', postController.show);
+
 module.exports = router;
