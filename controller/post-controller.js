@@ -47,8 +47,8 @@ exports.showPostPage = async function (req, res) {
   };
   var data = {
     layout: 'post-page.hbs',
-    postTitle: 'What do I do?',
-    postAuthor: 'Xam',
+    postTitle: post.title,
+    postAuthor: post.accountName,
     comments: [comment1, comment2],
   };
 
