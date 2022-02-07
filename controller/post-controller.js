@@ -31,7 +31,6 @@ exports.show = function (req, res) {
 };
 
 // for showing post in post page
-
 exports.showPostPage = function (req, res) {
   comment1 = {
     commentAuthor: 'Jared',
@@ -52,7 +51,6 @@ exports.showPostPage = function (req, res) {
 };
 
 exports.post = async function (req, res) {
-  console.log('submitting question');
   // console.log(req.user);
   // console.log(req.user.accountName);
   temp = req.user.accountName;
