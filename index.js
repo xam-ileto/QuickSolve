@@ -17,6 +17,8 @@ const registerRouter = require('./routes/register-router.js');
 const postRouter = require('./routes/post-router.js');
 const viewRouter = require('./routes/view-router.js');
 
+const authenticator = require('./authenticator.js');
+
 const app = express();
 const port = 3000;
 
@@ -177,7 +179,7 @@ app.get('/editcomment', function (req, res) {
 
 app.post(
   '/login',
-  checkNotAuthenticated,
+  authenticator.checkNotAuthenticated,
   passport.authenticate('local', {
     successRedirect: '/index-logged-in',
     failureRedirect: '/login',
@@ -192,17 +194,17 @@ app.use('/register', registerRouter);
 app.use('/post', postRouter);
 app.use('/index-logged-in', viewRouter);
 
-function checkAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
+// function checkAuthenticated(req, res, next) {
+//   if (req.isAuthenticated()) {
+//     return next();
+//   }
 
-  res.redirect('/login');
-}
+//   res.redirect('/login');
+// }
 
-function checkNotAuthenticated(req, res, next) {
-  if (req.isAuthenticated()) {
-    return res.redirect('/');
-  }
-  next();
-}
+// function checkNotAuthenticated(req, res, next) {
+//   if (req.isAuthenticated()) {
+//     return res.redirect('/');
+//   }
+//   next();
+// }
