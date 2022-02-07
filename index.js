@@ -15,6 +15,7 @@ const exphbs = require('express-handlebars');
 const accountRouter = require('./routes/account-router.js');
 const registerRouter = require('./routes/register-router.js');
 const postRouter = require('./routes/post-router.js');
+const viewRouter = require('./routes/view-router.js');
 
 const app = express();
 const port = 3000;
@@ -67,27 +68,17 @@ app.get('/', function (req, res) {
   res.render('index', data);
 });
 
-// app.get('/index-logged-in', function (req, res) {
+// app.get('/index-logged-in', checkAuthenticated, async (req, res) => {
+//   accountName = await accountController.findOneById(req.session.passport.user);
+//   accountName = accountName.accountName;
 //   var data = {
 //     isLoggedIn: true,
 //     // for search icon
 //     isInIndex: true,
-//     accountName: 'NancyLandgraab',
+//     accountName: accountName,
 //   };
 //   res.render('index', data);
 // });
-
-app.get('/index-logged-in', checkAuthenticated, async (req, res) => {
-  accountName = await accountController.findOneById(req.session.passport.user);
-  accountName = accountName.accountName;
-  var data = {
-    isLoggedIn: true,
-    // for search icon
-    isInIndex: true,
-    accountName: accountName,
-  };
-  res.render('index', data);
-});
 
 // post pages
 app.get('/post', (req, res) => {
@@ -199,6 +190,7 @@ app.get('/', loginController.show);
 app.use('/account', accountRouter);
 app.use('/register', registerRouter);
 app.use('/post', postRouter);
+app.use('/index-logged-in', viewRouter);
 
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
