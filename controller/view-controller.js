@@ -6,9 +6,6 @@ exports.showAllPosts = function (req, res) {
 
   accountName = req.user.accountName;
 
-  //   accountName = await accountController.findOneById(req.session.passport.user);
-  //   accountName = accountName.accountName;
-
   post1 = {
     postTitle: 'Why?',
     author: 'Me',
