@@ -7,7 +7,9 @@ exports.showAllPosts = async function (req, res) {
   newPosts = [];
 
   posts.forEach((element) => {
+    console.log;
     post = {
+      postId: element._id.toString(),
       postTitle: element.title,
       accountName: element.accountName,
     };
