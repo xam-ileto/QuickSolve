@@ -18,4 +18,14 @@ exports.create = function (data) {
   });
 };
 
-module.exports = Post;
+// for getting all posts
+exports.getAllPosts = async function () {
+  try {
+    console.log('connecting to DB');
+    return await Post.find({});
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// module.exports = Post;

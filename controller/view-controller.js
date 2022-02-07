@@ -1,25 +1,28 @@
 const postModel = require('../database/models/post');
+// const { post } = require('../routes/view-router');
 const accountController = require('./account-controller.js');
 
-exports.showAllPosts = function (req, res) {
-  console.log('showing all posts');
+exports.showAllPosts = async function (req, res) {
+  posts = await postModel.getAllPosts();
+  newPosts = [];
+
+  posts.forEach((element) => {
+    post = {
+      postTitle: element.title,
+      accountName: element.accountName,
+    };
+    newPosts.push(post);
+  });
 
   accountName = req.user.accountName;
 
-  post1 = {
-    postTitle: 'Why?',
-    author: 'Me',
-  };
-  post2 = {
-    postTitle: 'Why again?',
-    author: 'Me again',
-  };
   var data = {
     isLoggedIn: true,
     // for search icon
     isInIndex: true,
     accountName: accountName,
-    posts: [post1, post2],
+    posts: newPosts,
   };
+
   res.render('index', data);
 };
