@@ -40,8 +40,11 @@
 			<hr class="post-divider">
 			<div class="post-comment">
 				<h1 class="posted-by">Posted by: {{postAuthor}}</h1>
+
+        {{#if isAuthor}}
         <a title="Edit Post" href="../edit-post.html"><i class="far fa-edit"></i></a>
         <a title="Delete Post" href="../index-logged-in.html"><i class="fas fa-trash-alt"></i></a>
+        {{/if}}
 				</form>
 			</div>
 		</div>

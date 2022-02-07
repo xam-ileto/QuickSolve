@@ -35,7 +35,17 @@ exports.showPostPage = async function (req, res) {
   postId = req.url.substring(req.url.lastIndexOf('/') + 1);
   // console.log(postId);
   post = await postModel.findOneById(postId);
-  console.log(post);
+  // console.log(post);
+
+  isAuthor = false;
+
+  // check if current user is author
+  console.log('author of post: ' + post.accountName);
+  console.log('logged in as: ' + req.user.accountName);
+
+  if (post.accountName === req.user.accountName) {
+    isAuthor = true;
+  }
 
   comment1 = {
     commentAuthor: 'Jared',
@@ -50,6 +60,7 @@ exports.showPostPage = async function (req, res) {
     postTitle: post.title,
     postAuthor: post.accountName,
     comments: [comment1, comment2],
+    isAuthor: isAuthor,
   };
 
   res.render('index', data);
