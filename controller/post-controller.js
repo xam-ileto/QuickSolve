@@ -1,6 +1,7 @@
 const postModel = require('../database/models/post');
 const accountModel = require('../database/models/account');
 
+// for showing post in index page
 exports.show = function (req, res) {
   var data = {
     layout: 'boxpage.hbs',
@@ -25,6 +26,27 @@ exports.show = function (req, res) {
       data.title = 'Edit Comment';
     }
   }
+
+  res.render('index', data);
+};
+
+// for showing post in post page
+
+exports.showPostPage = function (req, res) {
+  comment1 = {
+    commentAuthor: 'Jared',
+    commentContent: 'Yay',
+  };
+  comment2 = {
+    commentAuthor: 'Jar',
+    commentContent: 'Yay again',
+  };
+  var data = {
+    layout: 'post-page.hbs',
+    postTitle: 'What do I do?',
+    postAuthor: 'Xam',
+    comments: [comment1, comment2],
+  };
 
   res.render('index', data);
 };

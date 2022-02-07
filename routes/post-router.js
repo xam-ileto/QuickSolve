@@ -13,8 +13,6 @@ router.get('/edit-post', postController.show);
 
 router.post('/question', postController.post);
 
-router.get('/view/:id', () => {
-  console.log('here');
-});
+router.get('/view/:id', postController.showPostPage);
 
 module.exports = router;

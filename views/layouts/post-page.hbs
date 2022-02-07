@@ -6,10 +6,10 @@
     <title>Post</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
     <!-- insert more custom css files here (if needed) -->
-	<link rel="stylesheet" href="./css/index-styles.css"/>
-	<link rel="stylesheet" href="./css/post-styles.css"/>
+	<link rel="stylesheet" href="/css/index-styles.css"/>
+	<link rel="stylesheet" href="/css/post-styles.css"/>
     <!-- tailwind link -->
     <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
@@ -36,10 +36,10 @@
 
       <div class="main-box bg-white rounded-lg">
 		<div class="post rounded-lg">
-			<h1 class="post-title">I'm going to Boracay but I don't know what to do. Do you have any ideas?</h1>
+			<h1 class="post-title">{{postTitle}}</h1>
 			<hr class="post-divider">
 			<div class="post-comment">
-				<h1 class="posted-by">Posted by: You</h1>
+				<h1 class="posted-by">Posted by: {{postAuthor}}</h1>
         <a title="Edit Post" href="../edit-post.html"><i class="far fa-edit"></i></a>
         <a title="Delete Post" href="../index-logged-in.html"><i class="fas fa-trash-alt"></i></a>
 				</form>
@@ -50,11 +50,27 @@
 			<h1 class="comments-title">Comments</h1><i class="fas fa-comments fa-2x"></i>
 			<hr class="post-divider">
 			<div class="post-comment">
-				<h1 class="posted-by"><a title="View Account Details" href="../accounts/account3.html">Victor_Smith</a> answers:</h1>
-				<p class="posted-by"> Just swim! The beach there is great!</p>
+
+        {{#each comments}}
+				<h1 class="posted-by"><a title="View Account Details" href="../accounts/account3.html">{{commentAuthor}}</a> answers:</h1>
+				<p class="posted-by"> {{commentContent}}</p>
+        <br>
+        {{/each}}
 			</div>
 		</div>
 		
+  <div class="comments rounded-lg">
+			<h1 class="post-title">Reply</h1>
+			<form method="post">
+				<div>
+					<textarea class="reply"></textarea>
+				</div>
+				<button class="buttons my-2 btn-submit bg-blue-300 rounded-md">
+					<h2 class="mx-3 my-1 q-subtitle-black inline">Comment</h2>
+				</button>
+			</form>
+		</div>
+
 	  </div>
     </div>
     
