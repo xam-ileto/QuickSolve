@@ -21,8 +21,16 @@ exports.create = function (data) {
 // for getting all posts
 exports.getAllPosts = async function () {
   try {
-    console.log('connecting to DB');
     return await Post.find({});
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// for getting single post
+exports.findOneById = async function (id) {
+  try {
+    return await Post.findOne({ _id: id });
   } catch (err) {
     console.log(err);
   }

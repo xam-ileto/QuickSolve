@@ -31,9 +31,11 @@ exports.show = function (req, res) {
 };
 
 // for showing post in post page
-exports.showPostPage = function (req, res) {
+exports.showPostPage = async function (req, res) {
   postId = req.url.substring(req.url.lastIndexOf('/') + 1);
-  console.log(postId);
+  // console.log(postId);
+  post = await postModel.findOneById(postId);
+  console.log(post);
 
   comment1 = {
     commentAuthor: 'Jared',
