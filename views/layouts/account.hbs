@@ -43,7 +43,10 @@
             <a href="../view-account-details.html">View account details</a>
           </p>
           <p class="q-subtitle-dgray my-5 q-blue">
-            <a href="../index.html">Logout</a>
+            <form action="/logout?_method=DELETE" method="post">
+              <button type="submit" name="logout" value="logout" >Logout</button>
+            </form>
+            {{!-- <a href="/logout?_method=DELETE">Logout</a> --}}
           </p>
           <p class="q-subtitle-dgray my-5 q-blue">
             <a href="../index.html">Delete account</a>
