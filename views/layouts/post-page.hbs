@@ -64,11 +64,11 @@
 		
   <div class="comments rounded-lg">
 			<h1 class="post-title">Reply</h1>
-			<form method="post">
+			<form action="submit" method="post" id="submit">
 				<div>
-					<textarea class="reply"></textarea>
+					<textarea class="reply" form="submit" name="content"></textarea>
 				</div>
-				<button class="buttons my-2 btn-submit bg-blue-300 rounded-md">
+				<button class="buttons my-2 btn-submit bg-blue-300 rounded-md" name="submit" type="submit" form="submit">
 					<h2 class="mx-3 my-1 q-subtitle-black inline">Comment</h2>
 				</button>
 			</form>

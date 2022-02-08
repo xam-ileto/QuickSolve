@@ -66,6 +66,7 @@ exports.showPostPage = async function (req, res) {
   res.render('index', data);
 };
 
+// for creating a post
 exports.post = async function (req, res) {
   // console.log(req.user);
   // console.log(req.user.accountName);
@@ -77,4 +78,10 @@ exports.post = async function (req, res) {
   };
 
   postModel.create(data);
+};
+
+// for adding a comment
+exports.addComment = (req, res) => {
+  console.log(req.body);
+  console.log('you submitted the form!');
 };

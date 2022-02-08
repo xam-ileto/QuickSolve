@@ -15,4 +15,6 @@ router.post('/question', postController.post);
 
 router.get('/view/:id', postController.showPostPage);
 
+router.post('/view/submit', postController.addComment);
+
 module.exports = router;
