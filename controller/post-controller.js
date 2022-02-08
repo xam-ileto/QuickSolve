@@ -61,6 +61,7 @@ exports.showPostPage = async function (req, res) {
     postAuthor: post.accountName,
     comments: [comment1, comment2],
     isAuthor: isAuthor,
+    postId: postId,
   };
 
   res.render('index', data);
@@ -82,6 +83,17 @@ exports.post = async function (req, res) {
 
 // for adding a comment
 exports.addComment = (req, res) => {
+  console.log(req.url);
+  // console.log(window.location.url);
+
   console.log(req.body.content);
+  var data = {
+    content: req.body.content,
+    accountName: req.user.accountName,
+    postId: req.url.substring(req.url.lastIndexOf('/') + 1),
+  };
+
+  console.log(data);
+
   console.log('you submitted the form!');
 };

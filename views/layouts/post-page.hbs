@@ -64,7 +64,7 @@
 		
   <div class="comments rounded-lg">
 			<h1 class="post-title">Reply</h1>
-			<form action="submit" method="post" id="submit">
+			<form action="submit/{{postId}}" method="post" id="submit">
 				<div>
 					<textarea class="reply" form="submit" name="content"></textarea>
 				</div>
@@ -77,5 +77,6 @@
 	  </div>
     </div>
     
+    <script src="js/post-page.js"></script>
   </body>
 </html>
