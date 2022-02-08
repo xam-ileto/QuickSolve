@@ -1,5 +1,6 @@
 const postModel = require('../database/models/post');
 const accountModel = require('../database/models/account');
+const commentModel = require('../database/models/comment');
 
 // for showing post in index page
 exports.show = function (req, res) {
@@ -96,4 +97,9 @@ exports.addComment = (req, res) => {
   console.log(data);
 
   console.log('you submitted the form!');
+
+  // add data to DB
+  commentModel.create(data);
+
+  // show data in current page
 };

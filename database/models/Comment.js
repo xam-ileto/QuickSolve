@@ -12,7 +12,7 @@ const Comment = mongoose.model('Comment', CommentSchema);
 
 // for adding a comment to a post
 exports.create = function (data) {
-  Comment.create(data, (error, post) => {
+  Comment.create(data, (err, post) => {
     if (err) {
       console.log(err);
     }
