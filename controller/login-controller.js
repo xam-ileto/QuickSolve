@@ -5,6 +5,7 @@ exports.show = function (req, res) {
     isLogin: true,
     isBigBox: true,
   };
+
   res.render('index', data);
 };
 

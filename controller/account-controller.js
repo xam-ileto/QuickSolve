@@ -42,3 +42,11 @@ exports.findOneById = async function (id, req, res) {
   result = await accountModel.findOneById(id);
   return result;
 };
+
+// for showing account page
+exports.showAccountPage = function (req, res) {
+  data = {
+    layout: 'account.hbs',
+  };
+  res.render('index', data);
+};

@@ -10,6 +10,8 @@ router.get('/view-details', accountController.showDetails);
 
 router.get('/edit-details', accountController.showDetails);
 
+router.get('/view/:id', accountController.showAccountPage);
+
 module.exports = router;
 
 // router.get('/page', function (req, res) {

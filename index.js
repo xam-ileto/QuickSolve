@@ -187,6 +187,11 @@ app.post(
   })
 );
 
+app.delete('/logout', (req, res) => {
+  req.logOut();
+  res.redirect('/login');
+});
+
 app.get('/', loginController.show);
 
 app.use('/account', accountRouter);

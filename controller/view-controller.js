@@ -2,6 +2,7 @@ const postModel = require('../database/models/post');
 // const { post } = require('../routes/view-router');
 const accountController = require('./account-controller.js');
 
+// for showing all posts in index-logged-in
 exports.showAllPosts = async function (req, res) {
   posts = await postModel.getAllPosts();
   newPosts = [];
@@ -24,6 +25,7 @@ exports.showAllPosts = async function (req, res) {
     isInIndex: true,
     accountName: accountName,
     posts: newPosts,
+    currentUser: req.user._id.toString(),
   };
 
   res.render('index', data);
