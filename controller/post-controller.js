@@ -63,6 +63,8 @@ exports.showPostPage = async function (req, res) {
     comments: [comment1, comment2],
     isAuthor: isAuthor,
     postId: postId,
+    isLoggedIn: true,
+    accountName: req.user.accountName,
   };
 
   res.render('index', data);
@@ -100,6 +102,4 @@ exports.addComment = (req, res) => {
 
   // add data to DB
   commentModel.create(data);
-
-  // show data in current page
 };
