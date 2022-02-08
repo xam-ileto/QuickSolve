@@ -82,6 +82,6 @@ exports.post = async function (req, res) {
 
 // for adding a comment
 exports.addComment = (req, res) => {
-  console.log(req.body);
+  console.log(req.body.content);
   console.log('you submitted the form!');
 };
