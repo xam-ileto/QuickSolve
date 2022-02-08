@@ -52,15 +52,21 @@
 		<div class="comments rounded-lg">
 			<h1 class="comments-title">Comments</h1><i class="fas fa-comments fa-2x"></i>
 			<hr class="post-divider">
-			<div class="post-comment">
-
+			
+<div class="post-comment">
         {{#each comments}}
-				<h1 class="posted-by"><a title="View Account Details" href="../accounts/account3.html">{{commentAuthor}}</a> answers:</h1>
+        <div class="individual-comment">
+          <a class="posted-by" title="View Account Details" href="../accounts/account3.html">{{commentAuthor}}</a>
+          <h1 class="posted-by">answers: </h1>
 				<p class="posted-by"> {{commentContent}}</p>
-        <br>
+        <a title="Edit Comment" href="../edit-comment.html"><i class="far fa-edit"></i></a>
+<a title="Delete Comment" href="../index-logged-in.html"><i class="fas fa-trash-alt"></i></a>
+        </div>
         {{/each}}
-			</div>
-		</div>
+        </div>
+        </div>
+			
+		
 		
   <div class="comments rounded-lg">
 			<h1 class="post-title">Reply</h1>
@@ -69,14 +75,16 @@
 					<textarea class="reply" form="submit" name="content"></textarea>
 				</div>
 				<button class="buttons my-2 btn-submit bg-blue-300 rounded-md" name="submit" type="submit" form="submit">
-					<h2 class="mx-3 my-1 q-subtitle-black inline">Comment</h2>
+					<h2 class="mx-3 my-1 q-subtitle-black inline" id="addComment">Comment</h2>
 				</button>
 			</form>
 		</div>
-
+</div>
 	  </div>
     </div>
-    
-    <script src="js/post-page.js"></script>
+    </div>
+    <script src="https://twitter.github.io/typeahead.js/js/handlebars.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="/js/post-page.js"></script>
   </body>
 </html>
