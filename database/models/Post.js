@@ -35,5 +35,3 @@ exports.findOneById = async function (id) {
     console.log(err);
   }
 };
-
-// module.exports = Post;

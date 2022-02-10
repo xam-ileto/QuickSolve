@@ -73,8 +73,6 @@ exports.showPostPage = async function (req, res) {
 
 // for creating a post
 exports.post = async function (req, res) {
-  // console.log(req.user);
-  // console.log(req.user.accountName);
   temp = req.user.accountName;
 
   var data = {
@@ -88,7 +86,6 @@ exports.post = async function (req, res) {
 // for adding a comment
 exports.addComment = (req, res) => {
   console.log(req.url);
-  // console.log(window.location.url);
 
   console.log(req.body.content);
   var data = {

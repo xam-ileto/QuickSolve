@@ -1,5 +1,4 @@
 const postModel = require('../database/models/post');
-// const { post } = require('../routes/view-router');
 const accountController = require('./account-controller.js');
 
 // for showing all posts in index-logged-in
