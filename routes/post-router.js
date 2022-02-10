@@ -11,6 +11,8 @@ router.get('/edit-comment', postController.show);
 
 router.get('/edit-post/:id', postController.show);
 
+router.post('/edit-post/:id', postController.modifyPost);
+
 router.post('/question', postController.post);
 
 router.get('/view/:id', postController.showPostPage);

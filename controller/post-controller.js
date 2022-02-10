@@ -90,7 +90,7 @@ exports.post = async function (req, res) {
 
 // for adding a comment
 exports.addComment = (req, res) => {
-  console.log(req.url);
+  // console.log(req.url);
 
   console.log(req.body.content);
   var data = {
@@ -101,8 +101,15 @@ exports.addComment = (req, res) => {
 
   console.log(data);
 
-  console.log('you submitted the form!');
+  // console.log('you submitted the form!');
 
   // add data to DB
   commentModel.create(data);
+};
+
+// for modifying post
+exports.modifyPost = (req, res) => {
+  postId = req.url.substring(req.url.lastIndexOf('/') + 1);
+  postModel.modifyPost(postId, req.body.content);
+  res.redirect('/index-logged-in');
 };

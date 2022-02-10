@@ -35,3 +35,16 @@ exports.findOneById = async function (id) {
     console.log(err);
   }
 };
+
+// for modifying post
+exports.modifyPost = async (id, newContent) => {
+  try {
+    result = await Post.findOneAndUpdate(
+      { _id: id },
+      { title: newContent },
+      { new: true }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};
