@@ -3,15 +3,18 @@ const accountModel = require('../database/models/account');
 const commentModel = require('../database/models/comment');
 
 // for showing post in index page
-exports.show = function (req, res) {
+// also used in editing post
+exports.show = async function (req, res) {
   var data = {
     layout: 'boxpage.hbs',
     isBigBox: false,
     title: '',
     buttonText: '',
+    content: '',
   };
 
   url = req.originalUrl;
+  id = url.substring(url.lastIndexOf('/') + 1);
 
   if (url.includes('search')) {
     data.title = data.buttonText = 'Search';
@@ -22,6 +25,8 @@ exports.show = function (req, res) {
       data.title = 'Ask Question';
     } else if (url.includes('edit-post')) {
       data.title = 'Edit Post';
+      post = await postModel.findOneById(id);
+      data.content = post.title;
     } else {
       // if url is edit-comment
       data.title = 'Edit Comment';
