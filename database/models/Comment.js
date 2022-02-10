@@ -18,3 +18,13 @@ exports.create = function (data) {
     }
   });
 };
+
+// for getting comments
+exports.findById = async function (id) {
+  try {
+    result = await Comment.find({ postId: id });
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+};

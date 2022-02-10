@@ -34,9 +34,7 @@ exports.show = function (req, res) {
 // for showing post in post page
 exports.showPostPage = async function (req, res) {
   postId = req.url.substring(req.url.lastIndexOf('/') + 1);
-  // console.log(postId);
   post = await postModel.findOneById(postId);
-  // console.log(post);
 
   isAuthor = false;
 
@@ -48,19 +46,22 @@ exports.showPostPage = async function (req, res) {
     isAuthor = true;
   }
 
-  comment1 = {
-    commentAuthor: 'Jared',
-    commentContent: 'Yay',
-  };
-  comment2 = {
-    commentAuthor: 'Jar',
-    commentContent: 'Yay again',
-  };
+  // get comments of post
+  finalComments = [];
+  comments = await commentModel.findById(postId);
+
+  comments.forEach((element) => {
+    finalComments.push({
+      commentAuthor: element.accountName,
+      commentContent: element.content,
+    });
+  });
+
   var data = {
     layout: 'post-page.hbs',
     postTitle: post.title,
     postAuthor: post.accountName,
-    comments: [comment1, comment2],
+    comments: finalComments,
     isAuthor: isAuthor,
     postId: postId,
     isLoggedIn: true,
