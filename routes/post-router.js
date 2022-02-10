@@ -9,7 +9,7 @@ router.get('/search', postController.show);
 
 router.get('/edit-comment', postController.show);
 
-router.get('/edit-post', postController.show);
+router.get('/edit-post/:id', postController.show);
 
 router.post('/question', postController.post);
 
