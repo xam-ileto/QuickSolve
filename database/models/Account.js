@@ -38,7 +38,7 @@ exports.findOneById = async function (id) {
   }
 };
 
-exports.deleteAccount = async (id) => {
+exports.deleteAccount = (id) => {
   Account.findOneAndDelete({ _id: id }, (err, docs) => {
     if (err) {
       console.log(err);
