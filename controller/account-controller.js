@@ -47,3 +47,10 @@ exports.showAccountPage = function (req, res) {
   };
   res.render('index', data);
 };
+
+// for deleting account (also deletes account's posts and comments)
+exports.deleteAccount = (req, res) => {
+  console.log(req.user._id.toString());
+  console.log(req.user.accountName);
+  // accountModel.deleteAccount
+};
