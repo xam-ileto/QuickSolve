@@ -48,3 +48,11 @@ exports.modifyPost = async (id, newContent) => {
     console.log(err);
   }
 };
+
+exports.deleteByAccount = (accountName) => {
+  Post.findOneAndDelete({ accountName: accountName }, (err, docs) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+};
