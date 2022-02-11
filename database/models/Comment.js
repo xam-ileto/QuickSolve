@@ -26,3 +26,11 @@ exports.findById = async function (id) {
     console.log(err);
   }
 };
+
+exports.deleteByAccount = (accountName) => {
+  Comment.findOneAndDelete({ accountName: accountName }, (err, docs) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+};
