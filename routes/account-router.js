@@ -12,7 +12,7 @@ router.get('/edit-details', accountController.showDetails);
 
 router.get('/view/:id', accountController.showAccountPage);
 
-router.get('/delete', accountController.deleteAccount);
+router.post('/delete', accountController.deleteAccount);
 
 module.exports = router;
 
