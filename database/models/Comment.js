@@ -28,7 +28,15 @@ exports.findById = async function (id) {
 };
 
 exports.deleteByAccount = (accountName) => {
-  Comment.findOneAndDelete({ accountName: accountName }, (err, docs) => {
+  Comment.deleteMany({ accountName: accountName }, (err, docs) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+};
+
+exports.deleteById = (id) => {
+  Comment.findOneAndDelete({ _id: id }, (err, docs) => {
     if (err) {
       console.log(err);
     }
