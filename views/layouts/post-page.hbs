@@ -59,8 +59,10 @@
           <a class="posted-by" title="View Account Details" href="../accounts/account3.html">{{commentAuthor}}</a>
           <h1 class="posted-by">answers: </h1>
 				<p class="posted-by"> {{commentContent}}</p>
+        {{#if isCommentAuthor}}
         <a title="Edit Comment" href="../edit-comment.html"><i class="far fa-edit"></i></a>
 <a title="Delete Comment" href="../index-logged-in.html"><i class="fas fa-trash-alt"></i></a>
+{{/if}}
         </div>
         {{/each}}
         </div>

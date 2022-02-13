@@ -59,6 +59,10 @@ exports.showPostPage = async function (req, res) {
     finalComments.push({
       commentAuthor: element.accountName,
       commentContent: element.content,
+      // checks if logged in user is the author of comment
+      // to allow owner to delete/modify
+      isCommentAuthor:
+        element.accountName === req.user.accountName ? true : false,
     });
   });
 
