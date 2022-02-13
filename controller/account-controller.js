@@ -1,4 +1,6 @@
 const accountModel = require('../database/models/account');
+const postModel = require('../database/models/post');
+const commentModel = require('../database/models/comment');
 
 // double check if this function is needed
 exports.create = function (req, res) {
@@ -50,7 +52,9 @@ exports.showAccountPage = function (req, res) {
 
 // for deleting account (also deletes account's posts and comments)
 exports.deleteAccount = (req, res) => {
-  console.log(req.user._id.toString());
-  console.log(req.user.accountName);
-  // accountModel.deleteAccount
+  accountName = req.user.accountName;
+  accountModel.deleteAccount(req.user._id);
+  postModel.deleteByAccount(accountName);
+  commentModel.deleteByAccount(accountName);
+  res.redirect('/login');
 };
