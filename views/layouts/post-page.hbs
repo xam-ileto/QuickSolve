@@ -1,92 +1,95 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Post</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <!-- insert more custom css files here (if needed) -->
-	<link rel="stylesheet" href="/css/index-styles.css"/>
-	<link rel="stylesheet" href="/css/post-styles.css"/>
-    <!-- tailwind link -->
-    <link
-      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
-    <!-- Google fonts link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Font awesome link -->
-    <script
-      src="https://kit.fontawesome.com/0947d2976d.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
 
-  <body>
-    <!-- index main -->
-    <div class="background-post">
-      {{>header}}
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Post</title>
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/css/styles.css" />
+  <!-- insert more custom css files here (if needed) -->
+  <link rel="stylesheet" href="/css/index-styles.css" />
+  <link rel="stylesheet" href="/css/post-styles.css" />
+  <!-- tailwind link -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+  <!-- Google fonts link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@700&display=swap" rel="stylesheet" />
+  <!-- Font awesome link -->
+  <script src="https://kit.fontawesome.com/0947d2976d.js" crossorigin="anonymous"></script>
+</head>
 
-      <div class="main-box bg-white rounded-lg">
-		<div class="post rounded-lg">
-			<h1 class="post-title">{{postTitle}}</h1>
-			<hr class="post-divider">
-			<div class="post-comment">
-				<h1 class="posted-by">Posted by: {{postAuthor}}</h1>
+<body>
+  <!-- index main -->
+  <div class="background-post">
+    {{>header}}
 
-        {{#if isAuthor}}
-        <a title="Edit Post" href="/post/edit-post/{{postId}}"><i class="far fa-edit"></i></a>
-        <a title="Delete Post" href="../index-logged-in.html"><i class="fas fa-trash-alt"></i></a>
-        {{/if}}
-				</form>
-			</div>
-		</div>
-		
-		<div class="comments rounded-lg">
-			<h1 class="comments-title">Comments</h1><i class="fas fa-comments fa-2x"></i>
-			<hr class="post-divider">
-			
-<div class="post-comment">
-        {{#each comments}}
-        <div class="individual-comment">
-          <a class="posted-by" title="View Account Details" href="../accounts/account3.html">{{commentAuthor}}</a>
-          <h1 class="posted-by">answers: </h1>
-				<p class="posted-by"> {{commentContent}}</p>
-        {{#if isCommentAuthor}}
-        <a title="Edit Comment" href="../edit-comment.html"><i class="far fa-edit"></i></a>
-<a title="Delete Comment" href="../index-logged-in.html"><i class="fas fa-trash-alt"></i></a>
-{{/if}}
+    <div class="main-box bg-white rounded-lg">
+      <div class="post rounded-lg">
+        <h1 class="post-title">{{postTitle}}</h1>
+        <hr class="post-divider">
+        <div class="post-comment">
+          <h1 class="posted-by">Posted by: {{postAuthor}}</h1>
+
+          {{#if isAuthor}}
+          <a title="Edit Post" href="/post/edit-post/{{postId}}"><i class="far fa-edit"></i></a>
+          <a title="Delete Post" href="../index-logged-in.html"><i class="fas fa-trash-alt"></i></a>
+          {{/if}}
+          </form>
         </div>
-        {{/each}}
+      </div>
+
+      <div class="comments rounded-lg">
+        <h1 class="comments-title">Comments</h1><i class="fas fa-comments fa-2x"></i>
+        <hr class="post-divider">
+
+        <div class="post-comment">
+          {{#each comments}}
+          <div class="individual-comment">
+            <a class="posted-by" title="View Account Details" href="../accounts/account3.html">{{commentAuthor}}</a>
+            <h1 class="posted-by">answers: </h1>
+            <p class="posted-by"> {{commentContent}}</p>
+            {{#if isCommentAuthor}}
+            <a title="Edit Comment" href="../edit-comment.html"><i class="far fa-edit"></i></a>
+
+            {{!-- delete comment --}}
+            <form action="/comment/delete" method="post">
+            <button type="submit">
+              <i class="fas fa-trash-alt"></i>
+              </button>
+            </form>
+
+            {{!-- <a id="deleteComment" title="Delete Comment" href="../index-logged-in.html"><i
+                class="fas fa-trash-alt"></i></a> --}}
+            {{/if}}
+          </div>
+          {{/each}}
         </div>
-        </div>
-			
-		
-		
-  <div class="comments rounded-lg">
-			<h1 class="post-title">Reply</h1>
-			<form action="submit/{{postId}}" method="post" id="submit">
-				<div>
-					<textarea class="reply" form="submit" name="content" id="commentContent" value="commentContent" ></textarea>
-				</div>
-				<button class="buttons my-2 btn-submit bg-blue-300 rounded-md" name="submit" type="submit" form="submit">
-					<h2 class="mx-3 my-1 q-subtitle-black inline" id="addComment">Comment</h2>
-				</button>
-			</form>
-		</div>
-</div>
-	  </div>
+      </div>
+
+
+
+      <div class="comments rounded-lg">
+        <h1 class="post-title">Reply</h1>
+        <form action="submit/{{postId}}" method="post" id="submit">
+          <div>
+            <textarea class="reply" form="submit" name="content" id="commentContent" value="commentContent"></textarea>
+          </div>
+          <button class="buttons my-2 btn-submit bg-blue-300 rounded-md" name="submit" type="submit" form="submit">
+            <h2 class="mx-3 my-1 q-subtitle-black inline" id="addComment">Comment</h2>
+          </button>
+        </form>
+      </div>
     </div>
-    </div>
-    <script src="https://twitter.github.io/typeahead.js/js/handlebars.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="/js/post-page.js"></script>
-  </body>
+  </div>
+  </div>
+  </div>
+  <script src="https://twitter.github.io/typeahead.js/js/handlebars.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+  <script src="/js/post-page.js"></script>
+</body>
+
 </html>
