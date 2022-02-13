@@ -53,8 +53,18 @@ $(document).ready(() => {
   });
 
   $('.deleteComment').click((event) => {
-    console.log('you want to delete a comment!');
-    parent = $(event.target).closest('.individual-comment');
-    parent.remove();
+    commentId = $(event.target).attr('class').split(' ').pop();
+    console.log('commentId: ' + commentId);
+    data = {
+      commentId: commentId,
+    };
+
+    $.post('/post/comment/delete', data, (data, status) => {
+      console.log($('.' + data));
+      currentElement = $('.' + data);
+
+      parent = currentElement.closest('.individual-comment');
+      parent.remove();
+    });
   });
 });

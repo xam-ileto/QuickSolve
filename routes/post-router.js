@@ -19,4 +19,11 @@ router.get('/view/:id', postController.showPostPage);
 
 router.post('/view/submit/:postId', postController.addComment);
 
+// router.post('/comment/delete/:commentId', () => {
+//   console.log('here in get');
+//   // postController.deleteComment;
+// });
+
+router.post('/comment/delete', postController.deleteComment);
+
 module.exports = router;

@@ -57,6 +57,7 @@ exports.showPostPage = async function (req, res) {
 
   comments.forEach((element) => {
     finalComments.push({
+      commentId: element._id,
       commentAuthor: element.accountName,
       commentContent: element.content,
       // checks if logged in user is the author of comment
@@ -117,4 +118,9 @@ exports.modifyPost = (req, res) => {
   postId = req.url.substring(req.url.lastIndexOf('/') + 1);
   postModel.modifyPost(postId, req.body.content);
   res.redirect('/index-logged-in');
+};
+
+exports.deleteComment = async (req, res) => {
+  await commentModel.deleteById(req.body.commentId);
+  res.status(200).send(req.body.commentId);
 };

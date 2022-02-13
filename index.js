@@ -8,6 +8,7 @@ const session = require('express-session');
 const methodOverride = require('method-override');
 const accountController = require('./controller/account-controller.js');
 const loginController = require('./controller/login-controller.js');
+const bodyParser = require('body-parser');
 
 const express = require('express');
 const exphbs = require('express-handlebars');
@@ -58,8 +59,10 @@ app.engine(
 app.set('view engine', 'hbs');
 
 // ------------------MONGODB SET UP-----------------------
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // ------------------HANDLEBARS ROUTING---------------------
 // main pages

@@ -55,11 +55,11 @@
             <a title="Edit Comment" href="../edit-comment.html"><i class="far fa-edit"></i></a>
 
             {{!-- delete comment --}}
-            <form action="/comment/delete" method="post">
-            <button class="deleteComment" type="submit">
-              <i class="fas fa-trash-alt"></i>
+            {{!-- <form action="/post/comment/delete" method="post" id="{{commentId}}"> --}}
+            <button class="deleteComment {{commentId}}" type="button">
+              <i class="fas fa-trash-alt {{commentId}}"></i>
               </button>
-            </form>
+            {{!-- </form> --}}
 
             {{!-- <a id="deleteComment" title="Delete Comment" href="../index-logged-in.html"><i
                 class="fas fa-trash-alt"></i></a> --}}
