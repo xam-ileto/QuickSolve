@@ -51,4 +51,10 @@ $(document).ready(() => {
 
     $('.post-comment').append(commentDiv);
   });
+
+  $('.deleteComment').click((event) => {
+    console.log('you want to delete a comment!');
+    parent = $(event.target).closest('.individual-comment');
+    parent.remove();
+  });
 });
