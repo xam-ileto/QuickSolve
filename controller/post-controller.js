@@ -86,6 +86,7 @@ exports.post = async function (req, res) {
   };
 
   postModel.create(data);
+  res.redirect('/index-logged-in');
 };
 
 // for adding a comment
