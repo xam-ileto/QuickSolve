@@ -7,7 +7,7 @@ router.get('/ask', postController.show);
 
 router.get('/search', postController.show);
 
-router.get('/edit-comment', postController.show);
+router.get('/edit-comment/:commentId', postController.show);
 
 router.get('/edit-post/:id', postController.show);
 

@@ -51,19 +51,20 @@
             <a class="posted-by" title="View Account Details" href="../accounts/account3.html">{{commentAuthor}}</a>
             <h1 class="posted-by">answers: </h1>
             <p class="posted-by"> {{commentContent}}</p>
-            {{#if isCommentAuthor}}
-            <a title="Edit Comment" href="../edit-comment.html"><i class="far fa-edit"></i></a>
 
+            {{#if isCommentAuthor}}
+            {{!-- modify comment --}}
+            <form action="/post/edit-comment/{{commentId}}" method="get" id="{{commentId}}">
+            <button type="submit" form="{{commentId}}">
+              <i class="far fa-edit"></i>
+            </button>
+            </form>
             {{!-- delete comment --}}
-            {{!-- <form action="/post/comment/delete" method="post" id="{{commentId}}"> --}}
             <button class="deleteComment {{commentId}}" type="button">
               <i class="fas fa-trash-alt {{commentId}}"></i>
-              </button>
-            {{!-- </form> --}}
-
-            {{!-- <a id="deleteComment" title="Delete Comment" href="../index-logged-in.html"><i
-                class="fas fa-trash-alt"></i></a> --}}
+            </button>
             {{/if}}
+            
           </div>
           {{/each}}
         </div>
