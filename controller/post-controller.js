@@ -12,6 +12,7 @@ exports.show = async function (req, res) {
     title: '',
     buttonText: '',
     content: '',
+    urlAction: '',
   };
 
   url = req.originalUrl;
@@ -19,24 +20,26 @@ exports.show = async function (req, res) {
 
   if (url.includes('search')) {
     data.title = data.buttonText = 'Search';
+    data.urlAction = '/search';
   } else {
     data.buttonText = 'Post';
 
     if (url.includes('ask')) {
       data.title = 'Ask Question';
+      data.urlAction = '/post/question';
     } else if (url.includes('edit-post')) {
       data.title = 'Edit Post';
       post = await postModel.findOneById(id);
       data.content = post.title;
+      data.urlAction = '/post/edit-post/' + id;
     } else {
       // if url is edit-comment
       data.title = 'Edit Comment';
 
       id = id.slice(0, -1);
-      console.log('found id: ' + id);
       comment = await commentModel.findByCommentId(id);
       data.content = comment[0].content;
-      console.log('content: ' + data.content);
+      data.urlAction = '/post/edit-comment/' + id;
     }
   }
 
