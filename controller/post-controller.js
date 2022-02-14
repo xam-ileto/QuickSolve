@@ -134,3 +134,9 @@ exports.deleteComment = async (req, res) => {
   await commentModel.deleteById(req.body.commentId);
   res.status(200).send(req.body.commentId);
 };
+
+exports.modifyComment = (req, res) => {
+  commentId = req.url.substring(req.url.lastIndexOf('/') + 1);
+  commentModel.modifyComment(commentId, req.body.content);
+  res.redirect('/index-logged-in');
+};

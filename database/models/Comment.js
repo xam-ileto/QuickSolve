@@ -53,3 +53,15 @@ exports.deleteById = (id) => {
     }
   });
 };
+
+exports.modifyComment = async (id, newContent) => {
+  try {
+    result = await Comment.findOneAndUpdate(
+      { _id: id },
+      { content: newContent },
+      { new: true }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};
