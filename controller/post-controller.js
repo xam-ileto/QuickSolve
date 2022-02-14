@@ -1,6 +1,7 @@
 const postModel = require('../database/models/post');
 const accountModel = require('../database/models/account');
 const commentModel = require('../database/models/comment');
+const mongoose = import('mongoose');
 
 // for showing post in index page
 // also used in editing post
@@ -30,6 +31,12 @@ exports.show = async function (req, res) {
     } else {
       // if url is edit-comment
       data.title = 'Edit Comment';
+
+      id = id.slice(0, -1);
+      console.log('found id: ' + id);
+      comment = await commentModel.findByCommentId(id);
+      data.content = comment[0].content;
+      console.log('content: ' + data.content);
     }
   }
 

@@ -18,9 +18,20 @@ exports.create = function (data) {
 };
 
 // for getting comments
+// finds based on POST id, not comment id
 exports.findById = async function (id) {
   try {
     result = await Comment.find({ postId: id });
+    return result;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// finds based on COMMENT id
+exports.findByCommentId = async function (id) {
+  try {
+    result = await Comment.find({ _id: id });
     return result;
   } catch (err) {
     console.log(err);
