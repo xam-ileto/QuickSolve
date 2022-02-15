@@ -65,17 +65,28 @@ exports.showPostPage = async function (req, res) {
   finalComments = [];
   comments = await commentModel.findById(postId);
 
-  comments.forEach((element) => {
-    finalComments.push({
+  for (element of comments) {
+    var data = {
       commentId: element._id,
       commentAuthor: element.accountName,
+      commentAuthorId: '',
       commentContent: element.content,
       // checks if logged in user is the author of comment
       // to allow owner to delete/modify
-      isCommentAuthor:
-        element.accountName === req.user.accountName ? true : false,
-    });
-  });
+      isCommentAuthor: element.accountName === req.user.accountName,
+    };
+
+    commentAuthorId = await accountModel.findOneByAccountName(
+      data.commentAuthor
+    );
+
+    console.log(commentAuthorId._id.toString());
+    data.commentAuthorId = commentAuthorId._id.toString();
+
+    finalComments.push(data);
+  }
+
+  console.log(finalComments.length);
 
   var data = {
     layout: 'post-page.hbs',

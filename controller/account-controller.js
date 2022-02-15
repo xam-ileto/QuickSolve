@@ -44,8 +44,9 @@ exports.findOneById = async function (id, req, res) {
 
 // for showing account page
 exports.showAccountPage = async (req, res) => {
-  accountName = req.user.accountName;
-  accountId = req.user._id;
+  accountId = req.url.substring(req.url.lastIndexOf('/') + 1);
+  accountName = await accountModel.findOneById(accountId);
+  accountName = accountName.accountName;
   // get each post
   originalPosts = await postModel.getByAccountName(accountName);
   posts = [];
