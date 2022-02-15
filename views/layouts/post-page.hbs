@@ -35,7 +35,13 @@
 
           {{#if isAuthor}}
           <a title="Edit Post" href="/post/edit-post/{{postId}}"><i class="far fa-edit"></i></a>
-          <a title="Delete Post" href="../index-logged-in.html"><i class="fas fa-trash-alt"></i></a>
+
+          <form action="/post/delete-post/{{postId}}" method="post" id="deletePost">
+          <button class="deletePost {{postId}}" type="submit" form="deletePost">
+              <i class="fas fa-trash-alt {{postId}}"></i>
+            </button>
+          </form>
+          
           {{/if}}
           </form>
         </div>

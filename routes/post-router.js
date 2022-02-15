@@ -23,4 +23,6 @@ router.post('/view/submit/:postId', postController.addComment);
 
 router.post('/comment/delete', postController.deleteComment);
 
+router.post('/delete-post/:postId', postController.deletePost);
+
 module.exports = router;

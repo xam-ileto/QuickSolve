@@ -140,3 +140,10 @@ exports.modifyComment = (req, res) => {
   commentModel.modifyComment(commentId, req.body.content);
   res.redirect('/index-logged-in');
 };
+
+exports.deletePost = (req, res) => {
+  postId = req.url.substring(req.url.lastIndexOf('/') + 1);
+  postModel.deleteById(postId);
+  commentModel.deleteByPostId(postId);
+  res.redirect('/index-logged-in');
+};

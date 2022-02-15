@@ -54,6 +54,14 @@ exports.deleteById = (id) => {
   });
 };
 
+exports.deleteByPostId = (id) => {
+  Comment.findOneAndDelete({ postId: id }, (err, docs) => {
+    if (err) {
+      console.log(err);
+    }
+  });
+};
+
 exports.modifyComment = async (id, newContent) => {
   try {
     result = await Comment.findOneAndUpdate(
