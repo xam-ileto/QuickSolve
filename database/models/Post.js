@@ -64,3 +64,11 @@ exports.deleteById = (id) => {
     }
   });
 };
+
+exports.getByAccountName = (passedName) => {
+  try {
+    return await Post.find({ accountName: passedName });
+  } catch (err) {
+    console.log(err);
+  }
+};
