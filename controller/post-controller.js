@@ -80,13 +80,10 @@ exports.showPostPage = async function (req, res) {
       data.commentAuthor
     );
 
-    console.log(commentAuthorId._id.toString());
     data.commentAuthorId = commentAuthorId._id.toString();
 
     finalComments.push(data);
   }
-
-  console.log(finalComments.length);
 
   var data = {
     layout: 'post-page.hbs',
@@ -127,8 +124,6 @@ exports.addComment = (req, res) => {
   };
 
   console.log(data);
-
-  // console.log('you submitted the form!');
 
   // add data to DB
   commentModel.create(data);
