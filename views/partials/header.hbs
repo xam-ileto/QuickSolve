@@ -1,36 +1,36 @@
 <div class="navigation">
-        <div class="quicksolve-div flex">
-          <h1 class="quicksolve-h1 text-5xl">QuickSolve</h1>
-		  
-		  <!-- Post Button -->  
-		  <a class="post-button" href="/post/ask">Ask Question</a>
-          
-		  <div class="icons-div flex">
-		    
-            
-        {{#if isLoggedIn}}
-        <h1 class="login-indicator">
-              Logged In:
-              <a title="View Account Details" href="/account/view/{{currentUser}}"
-                 id="currentUser">{{accountName}}</a
-              >
-            </h1>
-            {{#if isInIndex}}
-            <a title="Search" href="post/search">
-              <i class="fas fa-search fa-2x"></i
-            ></a>
-            {{/if}}
-            <a title="Home" href="/index-logged-in"
-              ><i class="fas fa-home fa-2x"></i
-            ></a>
-        <a title="View Account Details" href="account"
-              ><i class="fas fa-user-circle fa-2x"></i
-            ></a>
+  <div class="quicksolve-div flex">
+    <h1 class="quicksolve-h1 text-5xl">QuickSolve</h1>
+
+    <!-- Post Button -->
+    <a class="post-button" href="/post/ask">Ask Question</a>
+
+    <div class="icons-div flex">
+
+
+      {{#if isLoggedIn}}
+      <h1 class="login-indicator">
+        Logged In:
+        <a title="View Account Page" href="/account/view/{{currentUser}}" id="currentUser">{{accountName}}</a>
+      </h1>
+      {{#if isInIndex}}
+      <a title="Search" href="post/search">
+        <i class="fas fa-search fa-2x"></i></a>
       {{else}}
-            <a title="Login" href="login"><h1 class="login-indicator">Currently not logged in</h1></a>
-        <a title="Login" href="login"><i class="fas fa-user-circle fa-2x"></i></a>
-			<a title="Register" href="register"><i class="fas fa-clipboard fa-2x"></i></i></a>
-        {{/if}}
-          </div>
-        </div>
-      </div>
+      <a title="Home" href="/index-logged-in"><i class="fas fa-home fa-2x"></i></a>
+      {{/if}}
+
+      {{#if showAccountDetails}}
+      <a title="View Account Details" href="/account/view-details"><i class="fas fa-user-circle fa-2x"></i></a>
+      {{/if}}
+
+      {{else}}
+      <a title="Login" href="login">
+        <h1 class="login-indicator">Currently not logged in</h1>
+      </a>
+      <a title="Login" href="/login"><i class="fas fa-user-circle fa-2x"></i></a>
+      <a title="Register" href="/register"><i class="fas fa-clipboard fa-2x"></i></i></a>
+      {{/if}}
+    </div>
+  </div>
+</div>

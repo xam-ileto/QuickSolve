@@ -17,7 +17,7 @@ exports.showAllPosts = async function (req, res) {
   });
 
   accountName = req.user.accountName;
-
+  // TO DO
   var data = {
     isLoggedIn: true,
     // for search icon
@@ -25,6 +25,7 @@ exports.showAllPosts = async function (req, res) {
     accountName: accountName,
     posts: newPosts,
     currentUser: req.user._id.toString(),
+    showAccountDetails: true,
   };
 
   res.render('index', data);

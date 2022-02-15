@@ -12,11 +12,15 @@ exports.create = function (req, res) {
   res.redirect('/login');
 };
 
+// TO DO
 exports.showDetails = function (req, res) {
   var data = {
     layout: 'account-details.hbs',
     title: '',
     isEdit: false,
+    isLoggedIn: true,
+    accountName: req.user.accountName,
+    currentUser: req.user._id.toString(),
   };
 
   url = req.originalUrl;
@@ -43,6 +47,7 @@ exports.findOneById = async function (id, req, res) {
 };
 
 // for showing account page
+
 exports.showAccountPage = async (req, res) => {
   accountId = req.url.substring(req.url.lastIndexOf('/') + 1);
   accountName = await accountModel.findOneById(accountId);
@@ -67,14 +72,20 @@ exports.showAccountPage = async (req, res) => {
     };
     comments.push(newComment);
   });
-
+  // TO DO
   data = {
     layout: 'account.hbs',
-    accountName: accountName,
+    accountPageName: accountName,
+    accountName: req.user.accountName,
     numOfPosts: posts.length,
     numOfComments: comments.length,
     posts: posts,
     comments: comments,
+    isOwnPage: req.isAuthenticated()
+      ? accountName === req.user.accountName
+      : false,
+    showAccountDetails: true,
+    isLoggedIn: req.isAuthenticated(),
   };
 
   res.render('index', data);
