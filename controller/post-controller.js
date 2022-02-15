@@ -116,17 +116,11 @@ exports.post = async function (req, res) {
 
 // for adding a comment
 exports.addComment = async (req, res) => {
-  // console.log(req.url);
-
-  // console.log(req.body.content);
-  // console.log(req);
   var data = {
     content: req.body.content,
     accountName: req.user.accountName,
     postId: req.url.substring(req.url.lastIndexOf('/') + 1),
   };
-
-  // console.log(req.user._id.toString());
 
   // add data to DB
   comment = await commentModel.create(data);
@@ -137,13 +131,6 @@ exports.addComment = async (req, res) => {
     accountId: req.user._id.toString(),
     account: req.user.accountName,
   };
-
-  // temp data
-  // var responseData = {
-  //   commentId: 1,
-  //   accountId: 2,
-  //   account: 'account name',
-  // };
 
   res.status(200).send(responseData);
 };

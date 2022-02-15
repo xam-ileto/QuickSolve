@@ -12,7 +12,6 @@ exports.create = function (req, res) {
   res.redirect('/login');
 };
 
-// TO DO
 exports.showDetails = function (req, res) {
   var data = {
     layout: 'account-details.hbs',
@@ -72,7 +71,6 @@ exports.showAccountPage = async (req, res) => {
     };
     comments.push(newComment);
   });
-  // TO DO
   data = {
     layout: 'account.hbs',
     accountPageName: accountName,

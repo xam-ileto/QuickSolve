@@ -17,7 +17,6 @@ exports.showAllPosts = async function (req, res) {
   });
 
   accountName = req.user.accountName;
-  // TO DO
   var data = {
     isLoggedIn: true,
     // for search icon
