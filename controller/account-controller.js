@@ -43,10 +43,39 @@ exports.findOneById = async function (id, req, res) {
 };
 
 // for showing account page
-exports.showAccountPage = function (req, res) {
+exports.showAccountPage = async (req, res) => {
+  accountName = req.user.accountName;
+  accountId = req.user._id;
+  // get each post
+  originalPosts = await postModel.getByAccountName(accountName);
+  posts = [];
+  originalPosts.forEach((element) => {
+    newPost = {
+      postTitle: element.title,
+      postId: element._id.toString(),
+    };
+    posts.push(newPost);
+  });
+  // get each comment
+  originalComments = await commentModel.getByAccountName(accountName);
+  comments = [];
+  originalComments.forEach((element) => {
+    newComment = {
+      commentContent: element.content,
+      commentId: element._id.toString(),
+    };
+    comments.push(newComment);
+  });
+
   data = {
     layout: 'account.hbs',
+    accountName: accountName,
+    numOfPosts: posts.length,
+    numOfComments: comments.length,
+    posts: posts,
+    comments: comments,
   };
+
   res.render('index', data);
 };
 

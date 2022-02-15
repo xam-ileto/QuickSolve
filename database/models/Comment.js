@@ -38,6 +38,14 @@ exports.findByCommentId = async function (id) {
   }
 };
 
+exports.getByAccountName = async (passedName) => {
+  try {
+    return await Comment.find({ accountName: passedName });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 exports.deleteByAccount = (accountName) => {
   Comment.deleteMany({ accountName: accountName }, (err, docs) => {
     if (err) {
