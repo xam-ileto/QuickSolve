@@ -51,7 +51,7 @@
         <h1 class="comments-title">Comments</h1><i class="fas fa-comments fa-2x"></i>
         <hr class="post-divider">
 
-        <div class="post-comment">
+        <div class="post-comment" id="comment-section">
           {{#each comments}}
           <div class="individual-comment">
             <a class="posted-by" title="View Account" href="/account/view/{{commentAuthorId}}">{{commentAuthor}}</a>
@@ -80,14 +80,14 @@
 
       <div class="comments rounded-lg">
         <h1 class="post-title">Reply</h1>
-        <form action="submit/{{postId}}" method="post" id="submit">
+        {{!-- <form action="submit/{{postId}}" method="post" id="submit"> --}}
           <div>
             <textarea class="reply" form="submit" name="content" id="commentContent" value="commentContent"></textarea>
           </div>
-          <button class="buttons my-2 btn-submit bg-blue-300 rounded-md" name="submit" type="submit" form="submit">
+          <button class="buttons my-2 btn-submit bg-blue-300 rounded-md" name="submit" type="button" form="submit">
             <h2 class="mx-3 my-1 q-subtitle-black inline" id="addComment">Comment</h2>
           </button>
-        </form>
+        {{!-- </form> --}}
       </div>
     </div>
   </div>

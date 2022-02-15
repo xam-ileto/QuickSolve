@@ -113,20 +113,37 @@ exports.post = async function (req, res) {
 };
 
 // for adding a comment
-exports.addComment = (req, res) => {
+exports.addComment = async (req, res) => {
   // console.log(req.url);
 
-  console.log(req.body.content);
+  // console.log(req.body.content);
+  // console.log(req);
   var data = {
     content: req.body.content,
     accountName: req.user.accountName,
     postId: req.url.substring(req.url.lastIndexOf('/') + 1),
   };
 
-  console.log(data);
+  // console.log(req.user._id.toString());
 
   // add data to DB
-  commentModel.create(data);
+  comment = await commentModel.create(data);
+
+  // send back response with commentId and accountId
+  var responseData = {
+    commentId: comment._id.toString(),
+    accountId: req.user._id.toString(),
+    account: req.user.accountName,
+  };
+
+  // temp data
+  // var responseData = {
+  //   commentId: 1,
+  //   accountId: 2,
+  //   account: 'account name',
+  // };
+
+  res.status(200).send(responseData);
 };
 
 // for modifying post
