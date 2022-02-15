@@ -61,7 +61,7 @@ exports.showSearchPosts = async (req, res) => {
   var data = {
     isLoggedIn: true,
     // for search icon
-    isInIndex: true,
+    isInIndex: false,
     accountName: req.user.accountName,
     posts: newPosts,
     currentUser: req.user._id.toString(),
