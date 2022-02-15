@@ -72,3 +72,12 @@ exports.getByAccountName = async (passedName) => {
     console.log(err);
   }
 };
+
+// for searching for posts with the query in its title
+exports.getByQuery = async (query) => {
+  try {
+    return await Post.find({ title: { $regex: query, $options: 'i' } });
+  } catch (err) {
+    console.log(err);
+  }
+};

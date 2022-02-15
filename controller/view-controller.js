@@ -41,15 +41,29 @@ exports.showSearchPosts = async (req, res) => {
   console.log(req.body.content);
 
   postsWithQuery = await postModel.getByQuery(req.body.content);
+  newPosts = [];
 
-  console.log(postsWithQuery);
+  for (element of postsWithQuery) {
+    var accountNameId = await accountModel.findOneByAccountName(
+      element.accountName
+    );
+    accountNameId = accountNameId._id.toString();
+
+    post = {
+      postId: element._id.toString(),
+      postTitle: element.title,
+      accountName: element.accountName,
+      accountNameId: accountNameId,
+    };
+    newPosts.push(post);
+  }
 
   var data = {
     isLoggedIn: true,
     // for search icon
     isInIndex: true,
     accountName: req.user.accountName,
-    posts: postsWithQuery,
+    posts: newPosts,
     currentUser: req.user._id.toString(),
     showAccountDetails: true,
   };
