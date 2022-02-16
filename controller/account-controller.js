@@ -69,6 +69,7 @@ exports.showAccountPage = async (req, res) => {
     newComment = {
       commentContent: element.content,
       commentId: element._id.toString(),
+      postId: element.postId,
     };
     comments.push(newComment);
   });

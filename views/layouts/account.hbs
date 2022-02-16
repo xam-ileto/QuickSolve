@@ -59,7 +59,7 @@
 
       {{!-- post title --}}
       <h1 class="post-title">
-        <a title="View Post" href="../posts/post1.html">{{postTitle}}</a>
+        <a title="View Post" href="/post/view/{{postId}}">{{postTitle}}</a>
       </h1>
       <hr class="post-divider" />
 
@@ -67,10 +67,10 @@
       <div class="post-comment">
 
         <h1 class="posted-by">
-          Posted by:
-          <a title="View Account Details" href="account1.html">{{../accountPageName}}</a>
+          Posted by: 
+          {{../accountPageName}}
         </h1>
-        <a title="Comment" href="../posts/post1.html"><i class="fas fa-comments fa-2x"></i></a>
+        <a title="Comment" href="/post/view/{{postId}}"><i class="fas fa-comments fa-2x"></i></a>
 
       </div>
     </div>
@@ -80,16 +80,16 @@
     <div class="post rounded-lg">
       {{!-- post title --}}
       <h1 class="post-title">
-        <a title="View Post" href="../posts/post1.html">{{commentContent}}</a>
+        <a title="View Post" href="/post/view/{{postId}}">{{commentContent}}</a>
       </h1>
       <hr class="post-divider" />
       {{!-- post lower half (includes author) --}}
       <div class="post-comment">
         <h1 class="posted-by">
           Commented by:
-          <a title="View Account Details" href="account1.html">{{../accountPageName}}</a>
+         {{../accountPageName}}
         </h1>
-        <a title="Comment" href="../posts/post4.html"><i class="far fa-clipboard fa-2x"></i></a>
+        <a title="Comment" href="/post/view/{{postId}}"><i class="far fa-clipboard fa-2x"></i></a>
 
       </div>
     </div>
