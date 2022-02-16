@@ -102,12 +102,11 @@ exports.deleteAccount = (req, res) => {
 // for modifying acct name and password
 exports.editDetails = (req, res) => {
   bcrypt.genSalt(10, (err, salt) => {
-    bcrypt.hash(req.body.newPassword, salt, (err, hash) => {
+    bcrypt.hash(req.body.newPassword, salt, async (err, hash) => {
       id = req.user._id;
       console.log('id in controller: ' + id);
-      accountModel.editDetailsById(id, req.body.newUsername, hash);
+      await accountModel.editDetailsById(id, req.body.newUsername, hash);
+      res.redirect('/index-logged-in');
     });
   });
-
-  res.redirect('/index-logged-in');
 };
