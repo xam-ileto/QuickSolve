@@ -46,12 +46,16 @@
         <hr class="my-5">
 
         {{#if isEdit}}
+        <form action="/account/edit-details" method="post" id="edit-details">
         <h2 class="text-2x1 mb-1">New Username</h2>
-        <input class="acct-input mt-1 mb-3" type="text">
+        <input class="acct-input mt-1 mb-3" type="text" id="newUsername">
         <h2 class="text-2x1 mt-3 mb-1">New Password</h2>
-        <input class="acct-input mx-auto mt-1 mb-3" type="text">
-        <button class="btn-submit bg-blue-300 rounded-md my-3" onclick="location.href='./accounts/account1.html'">
+        <input class="acct-input mx-auto mt-1 mb-3" type="text" id="newPassword">
+
+        <button class="btn-submit bg-blue-300 rounded-md my-3" type="submit">
           <h2 class="mx-3 my-1 q-subtitle-black my-3">Submit</h2>
+          </button>
+          </form>
         </div>
         {{else}}
         {{!-- if viewing account --}}
