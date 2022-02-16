@@ -20,19 +20,16 @@ exports.showDetails = function (req, res) {
     isLoggedIn: true,
     accountName: req.user.accountName,
     currentUser: req.user._id.toString(),
-    buttonURL: '',
   };
 
   url = req.originalUrl;
 
   if (url.includes('view')) {
     data.title = 'View Account';
-    data.buttonURL = '/account/edit-details';
   } else {
     // if url is edit details
     data.title = 'Edit Account';
     data.isEdit = true;
-    data.buttonURL = '/';
   }
 
   res.render('index', data);
