@@ -45,3 +45,16 @@ exports.deleteAccount = (id) => {
     }
   });
 };
+
+exports.editDetailsById = async (passedId, newUsername, newPassword) => {
+  try {
+    id = passedId.toString();
+    await Account.findOneAndUpdate(
+      { _id: id },
+      { accountName: newUsername, password: newPassword },
+      { new: true }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};

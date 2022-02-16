@@ -1,6 +1,7 @@
 const accountModel = require('../database/models/account');
 const postModel = require('../database/models/post');
 const commentModel = require('../database/models/comment');
+const bcrypt = require('bcrypt');
 
 // double check if this function is needed
 exports.create = function (req, res) {
@@ -100,7 +101,13 @@ exports.deleteAccount = (req, res) => {
 
 // for modifying acct name and password
 exports.editDetails = (req, res) => {
-  console.log(req.body);
+  bcrypt.genSalt(10, (err, salt) => {
+    bcrypt.hash(req.body.newPassword, salt, (err, hash) => {
+      id = req.user._id;
+      console.log('id in controller: ' + id);
+      accountModel.editDetailsById(id, req.body.newUsername, hash);
+    });
+  });
 
-  res.redirect('/account/view-details');
+  res.redirect('/index-logged-in');
 };
