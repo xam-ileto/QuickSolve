@@ -10,6 +10,8 @@ router.get('/view-details', accountController.showDetails);
 
 router.get('/edit-details', accountController.showDetails);
 
+router.post('/edit-details', accountController.editDetails);
+
 router.get('/view/:id', accountController.showAccountPage);
 
 router.post('/delete', accountController.deleteAccount);

@@ -97,3 +97,10 @@ exports.deleteAccount = (req, res) => {
   commentModel.deleteByAccount(accountName);
   res.redirect('/login');
 };
+
+// for modifying acct name and password
+exports.editDetails = (req, res) => {
+  console.log(req.body);
+
+  res.redirect('/account/view-details');
+};
