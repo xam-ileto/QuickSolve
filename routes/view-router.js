@@ -4,7 +4,19 @@ var router = express.Router();
 const viewController = require('../controller/view-controller');
 const authenticator = require('../authenticator.js');
 
-router.get('/', authenticator.checkAuthenticated, viewController.showAllPosts);
+// for showing index page if not logged in
+
+router.get(
+  '/',
+  authenticator.checkNotAuthenticated,
+  viewController.showInitialIndex
+);
+
+router.get(
+  '/index-logged-in',
+  authenticator.checkAuthenticated,
+  viewController.showAllPosts
+);
 
 router.post(
   '/search',
@@ -13,4 +25,3 @@ router.post(
 );
 
 module.exports = router;
-// /index-logged-in router

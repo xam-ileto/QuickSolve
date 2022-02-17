@@ -59,20 +59,10 @@ app.engine(
 app.set('view engine', 'hbs');
 
 // ------------------MONGODB SET UP-----------------------
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 // ------------------HANDLEBARS ROUTING---------------------
-// main pages
-app.get('/', function (req, res) {
-  var data = {
-    isLoggedIn: false,
-  };
-  console.log('index');
-  res.render('index', data);
-});
 
 // big box pages- Login and Register
 app.get('/login', function (req, res) {
@@ -102,9 +92,7 @@ app.delete('/logout', (req, res) => {
   res.redirect('/login');
 });
 
-// app.get('/', loginController.show);
-
 app.use('/account', accountRouter);
 app.use('/register', registerRouter);
 app.use('/post', postRouter);
-app.use('/index-logged-in', viewRouter);
+app.use('/', viewRouter);

@@ -36,6 +36,39 @@ exports.showAllPosts = async function (req, res) {
   res.render('index', data);
 };
 
+exports.showInitialIndex = async (req, res) => {
+  posts = await postModel.getAllPosts();
+  newPosts = [];
+
+  for (element of posts) {
+    var accountNameId = await accountModel.findOneByAccountName(
+      element.accountName
+    );
+    accountNameId = accountNameId._id.toString();
+
+    post = {
+      postId: element._id.toString(),
+      postTitle: element.title,
+      accountName: element.accountName,
+      accountNameId: accountNameId,
+    };
+    newPosts.push(post);
+  }
+
+  var data = {
+    isLoggedIn: false,
+    // for search icon
+    isInIndex: false,
+    posts: newPosts,
+  };
+
+  // var data = {
+  //   isLoggedIn: false,
+  // };
+  // console.log('index');
+  res.render('index', data);
+};
+
 // for showing search results
 exports.showSearchPosts = async (req, res) => {
   console.log(req.body.content);
