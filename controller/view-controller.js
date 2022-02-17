@@ -36,6 +36,7 @@ exports.showAllPosts = async function (req, res) {
   res.render('index', data);
 };
 
+// index page shown if not logged in
 exports.showInitialIndex = async (req, res) => {
   posts = await postModel.getAllPosts();
   newPosts = [];
@@ -59,7 +60,8 @@ exports.showInitialIndex = async (req, res) => {
     isLoggedIn: false,
     // for search icon
     isInIndex: false,
-    posts: newPosts,
+    // get first 20 posts only if not logged in
+    posts: newPosts.slice(0, 20),
   };
 
   // var data = {
