@@ -77,18 +77,18 @@
       </div>
 
 
-
+  {{#if isNotOwnPost}}
       <div class="comments rounded-lg">
         <h1 class="post-title">Reply</h1>
-        {{!-- <form action="submit/{{postId}}" method="post" id="submit"> --}}
           <div>
             <textarea class="reply" form="submit" name="content" id="commentContent" value="commentContent"></textarea>
           </div>
           <button class="buttons my-2 btn-submit bg-blue-300 rounded-md" name="submit" type="button" form="submit">
             <h2 class="mx-3 my-1 q-subtitle-black inline" id="addComment">Comment</h2>
           </button>
-        {{!-- </form> --}}
       </div>
+{{/if}}
+
     </div>
   </div>
   </div>

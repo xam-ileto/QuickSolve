@@ -84,7 +84,7 @@ exports.showPostPage = async function (req, res) {
 
     finalComments.push(data);
   }
-  // TO DO
+
   var data = {
     layout: 'post-page.hbs',
     postTitle: post.title,
@@ -96,6 +96,7 @@ exports.showPostPage = async function (req, res) {
     accountName: req.user.accountName,
     currentUser: req.user._id.toString(),
     showAccountDetails: true,
+    isNotOwnPost: post.accountName !== req.user.accountName,
   };
 
   res.render('index', data);
