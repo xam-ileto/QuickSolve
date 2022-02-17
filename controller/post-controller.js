@@ -36,7 +36,7 @@ exports.show = async function (req, res) {
       // if url is edit-comment
       data.title = 'Edit Comment';
 
-      // id = id.slice(0, -1);
+      id = id.slice(0, -1);
       console.log(id);
       comment = await commentModel.findByCommentId(id);
       data.content = comment[0].content;
