@@ -11,8 +11,8 @@ body {
 .main-box {
   width: 75%;
   min-height: 75%;
-  overflow: hidden;
+  overflow: scroll;
   padding-top: 1%;
-  margin: auto auto;
+  margin: 90px auto;
   display: inline;
 }
