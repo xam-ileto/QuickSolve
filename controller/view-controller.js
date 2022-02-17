@@ -37,6 +37,7 @@ exports.showAllPosts = async function (req, res) {
 };
 
 exports.showInitialIndex = async (req, res) => {
+  console.log('you are not logged in');
   posts = await postModel.getAllPosts();
   newPosts = [];
 
