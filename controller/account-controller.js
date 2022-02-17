@@ -1,6 +1,6 @@
-const accountModel = require('../database/models/account');
-const postModel = require('../database/models/post');
-const commentModel = require('../database/models/comment');
+const accountModel = require('../database/models/Account');
+const postModel = require('../database/models/Post');
+const commentModel = require('../database/models/Comment');
 const bcrypt = require('bcrypt');
 
 // double check if this function is needed

@@ -1,6 +1,6 @@
-const postModel = require('../database/models/post');
-const accountModel = require('../database/models/account');
-const commentModel = require('../database/models/comment');
+const postModel = require('../database/models/Post');
+const accountModel = require('../database/models/Account');
+const commentModel = require('../database/models/Comment');
 const mongoose = import('mongoose');
 
 // for showing post in index page
