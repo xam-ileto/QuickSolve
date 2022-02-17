@@ -13,6 +13,7 @@ router.get(
   viewController.showAllPosts
 );
 
+// for showing search results with home page format
 router.post(
   '/search',
   authenticator.checkAuthenticated,
