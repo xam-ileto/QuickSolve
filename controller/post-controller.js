@@ -1,6 +1,6 @@
-const postModel = require('../database/models/post');
-const accountModel = require('../database/models/account');
-const commentModel = require('../database/models/comment');
+const postModel = require('../database/models/Post');
+const accountModel = require('../database/models/Account');
+const commentModel = require('../database/models/Comment');
 const mongoose = import('mongoose');
 
 // for showing post in index page
@@ -36,7 +36,8 @@ exports.show = async function (req, res) {
       // if url is edit-comment
       data.title = 'Edit Comment';
 
-      id = id.slice(0, -1);
+      // id = id.slice(0, -1);
+      console.log(id);
       comment = await commentModel.findByCommentId(id);
       data.content = comment[0].content;
       data.urlAction = '/post/edit-comment/' + id;
@@ -84,7 +85,7 @@ exports.showPostPage = async function (req, res) {
 
     finalComments.push(data);
   }
-  // TO DO
+
   var data = {
     layout: 'post-page.hbs',
     postTitle: post.title,
@@ -96,6 +97,7 @@ exports.showPostPage = async function (req, res) {
     accountName: req.user.accountName,
     currentUser: req.user._id.toString(),
     showAccountDetails: true,
+    isNotOwnPost: post.accountName !== req.user.accountName,
   };
 
   res.render('index', data);

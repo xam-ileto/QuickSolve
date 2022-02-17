@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const { dbURL } = require('../../config');
 
-mongoose.connect('mongodb+srv://admin:1234@start.fowxh.mongodb.net/quicksolve');
+mongoose.connect(dbURL);
 
 const PostSchema = new mongoose.Schema({
   title: String,
@@ -77,6 +78,18 @@ exports.getByAccountName = async (passedName) => {
 exports.getByQuery = async (query) => {
   try {
     return await Post.find({ title: { $regex: query, $options: 'i' } });
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+exports.modifyAuthor = async (oldAuthorName, newAuthorName) => {
+  try {
+    result = await Post.findOneAndUpdate(
+      { accountName: oldAuthorName },
+      { accountName: newAuthorName },
+      { new: true }
+    );
   } catch (err) {
     console.log(err);
   }

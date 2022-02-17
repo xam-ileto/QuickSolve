@@ -1,6 +1,6 @@
-const accountModel = require('../database/models/account');
-const postModel = require('../database/models/post');
-const commentModel = require('../database/models/comment');
+const accountModel = require('../database/models/Account');
+const postModel = require('../database/models/Post');
+const commentModel = require('../database/models/Comment');
 const bcrypt = require('bcrypt');
 
 // double check if this function is needed
@@ -102,12 +102,20 @@ exports.deleteAccount = (req, res) => {
 
 // for modifying acct name and password
 exports.editDetails = (req, res) => {
+  oldUsername = req.user.accountName;
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(req.body.newPassword, salt, async (err, hash) => {
       id = req.user._id;
       console.log('id in controller: ' + id);
       await accountModel.editDetailsById(id, req.body.newUsername, hash);
       res.redirect('/index-logged-in');
+
+      // update account names in comments and posts
+      console.log('old acct name: ' + oldUsername);
+      newUsername = req.body.newUsername;
+      console.log('old acct name: ' + newUsername);
+      commentModel.modifyAuthor(oldUsername, newUsername);
+      postModel.modifyAuthor(oldUsername, newUsername);
     });
   });
 };

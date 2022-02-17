@@ -77,3 +77,15 @@ exports.modifyComment = async (id, newContent) => {
     console.log(err);
   }
 };
+
+exports.modifyAuthor = async (oldAuthorName, newAuthorName) => {
+  try {
+    result = await Comment.findOneAndUpdate(
+      { accountName: oldAuthorName },
+      { accountName: newAuthorName },
+      { new: true }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};

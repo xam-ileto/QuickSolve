@@ -1,5 +1,5 @@
-const postModel = require('../database/models/post');
-const accountModel = require('../database/models/account');
+const postModel = require('../database/models/Post');
+const accountModel = require('../database/models/Account');
 const accountController = require('./account-controller.js');
 
 // for showing all posts in index-logged-in
@@ -39,13 +39,16 @@ exports.showAllPosts = async function (req, res) {
 // index page shown if not logged in
 exports.showInitialIndex = async (req, res) => {
   posts = await postModel.getAllPosts();
-  newPosts = [];
+  // console.log(posts);
 
+  newPosts = [];
+  console.log('ELEMENTS-------------');
   for (element of posts) {
-    var accountNameId = await accountModel.findOneByAccountName(
-      element.accountName
-    );
-    accountNameId = accountNameId._id.toString();
+    console.log('***');
+    console.log(element);
+    var account = await accountModel.findOneByAccountName(element.accountName);
+    console.log(account);
+    accountNameId = account._id.toString();
 
     post = {
       postId: element._id.toString(),
@@ -64,10 +67,6 @@ exports.showInitialIndex = async (req, res) => {
     posts: newPosts.slice(0, 20),
   };
 
-  // var data = {
-  //   isLoggedIn: false,
-  // };
-  // console.log('index');
   res.render('index', data);
 };
 
