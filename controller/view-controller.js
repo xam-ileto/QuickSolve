@@ -64,10 +64,6 @@ exports.showInitialIndex = async (req, res) => {
     posts: newPosts.slice(0, 20),
   };
 
-  // var data = {
-  //   isLoggedIn: false,
-  // };
-  // console.log('index');
   res.render('index', data);
 };
 
