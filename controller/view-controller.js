@@ -42,10 +42,10 @@ exports.showInitialIndex = async (req, res) => {
   // console.log(posts);
 
   newPosts = [];
-  console.log('ELEMENTS-------------');
+  // console.log('ELEMENTS-------------');
   for (element of posts) {
-    console.log('***');
-    console.log(element);
+    // console.log('***');
+    // console.log(element);
     var account = await accountModel.findOneByAccountName(element.accountName);
     console.log(account);
     accountNameId = account._id.toString();
@@ -64,7 +64,7 @@ exports.showInitialIndex = async (req, res) => {
     // for search icon
     isInIndex: false,
     // get first 20 posts only if not logged in
-    posts: newPosts.slice(0, 20),
+    posts: newPosts.length > 20 ? newPosts.slice(0, 20) : newPosts,
   };
 
   res.render('index', data);
