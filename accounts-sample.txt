@@ -1,8 +1,8 @@
-Account 1:
+Account 1: (DELETED)
 sample
 1234
 
-Account 2:
+Account 2: (DELETED)
 test
 password
 
@@ -11,9 +11,5 @@ xamtest
 xam
 
 Account 4:
-jarjar
-yay
-
-Account 5:
-xamxam
-yay
+jared_tan
+password
