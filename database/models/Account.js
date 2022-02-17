@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const { dbURL } = require('../../config');
 
 // accounts db name: quicksolve-accounts
-mongoose.connect('mongodb+srv://admin:1234@start.fowxh.mongodb.net/quicksolve');
+mongoose.connect(dbURL);
 
 const AccountSchema = new mongoose.Schema({
   accountName: String,

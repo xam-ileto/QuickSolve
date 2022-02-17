@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const { dbURL } = require('../../config');
 
-mongoose.connect('mongodb+srv://admin:1234@start.fowxh.mongodb.net/quicksolve');
+mongoose.connect(dbURL);
 
 const PostSchema = new mongoose.Schema({
   title: String,
