@@ -88,6 +88,8 @@ app.post(
   })
 );
 
+// app.get('/', viewController.showInitialIndex);
+
 app.use('/account', accountRouter);
 app.use('/register', registerRouter);
 app.use('/post', postRouter);
