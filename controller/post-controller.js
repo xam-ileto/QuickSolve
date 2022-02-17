@@ -20,7 +20,7 @@ exports.show = async function (req, res) {
 
   if (url.includes('search')) {
     data.title = data.buttonText = 'Search';
-    data.urlAction = '/index-logged-in/search';
+    data.urlAction = '/search';
   } else {
     data.buttonText = 'Post';
 
