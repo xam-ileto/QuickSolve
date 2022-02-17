@@ -70,57 +70,9 @@ app.get('/', function (req, res) {
   var data = {
     isLoggedIn: false,
   };
+  console.log('index');
   res.render('index', data);
 });
-
-// app.get('/index-logged-in', checkAuthenticated, async (req, res) => {
-//   accountName = await accountController.findOneById(req.session.passport.user);
-//   accountName = accountName.accountName;
-//   var data = {
-//     isLoggedIn: true,
-//     // for search icon
-//     isInIndex: true,
-//     accountName: accountName,
-//   };
-//   res.render('index', data);
-// });
-
-// post pages
-app.get('/post', (req, res) => {
-  var data = {
-    layout: 'post.hbs',
-  };
-  res.render('index', data);
-});
-
-// account details pages
-app.get('/edit-account', function (req, res) {
-  var data = {
-    title: 'Edit Account',
-    isLoggedIn: true,
-    // for search icon
-    isInIndex: true,
-    isEdit: true,
-    layout: 'account-details.hbs',
-    accountName: 'NancyLandgraab',
-  };
-  res.render('index', data);
-});
-
-app.get('/view-account', function (req, res) {
-  var data = {
-    title: 'View Account',
-    isLoggedIn: true,
-    // for search icon
-    isInIndex: true,
-    isEdit: false,
-    layout: 'account-details.hbs',
-    accountName: 'NancyLandgraab',
-  };
-  res.render('index', data);
-});
-
-// box pages
 
 // big box pages- Login and Register
 app.get('/login', function (req, res) {
@@ -131,52 +83,7 @@ app.get('/login', function (req, res) {
     isBigBox: true,
     isLoginOrRegister: true,
   };
-  res.render('index', data);
-});
 
-// small box pages
-// small box- Post and Search
-app.get('/post', function (req, res) {
-  var data = {
-    layout: 'boxpage.hbs',
-    title: 'Post',
-
-    text1: 'Question',
-    text2: 'Post',
-  };
-  res.render('index', data);
-});
-
-app.get('/search', function (req, res) {
-  var data = {
-    layout: 'boxpage.hbs',
-    title: 'Search',
-
-    text1: 'Search',
-    text2: 'Search',
-  };
-  res.render('index', data);
-});
-// small box- edit post and edit comment
-app.get('/editpost', function (req, res) {
-  var data = {
-    layout: 'boxpage.hbs',
-    title: 'Edit Post',
-
-    text1: 'Edit Post',
-    text2: 'Post',
-  };
-  res.render('index', data);
-});
-
-app.get('/editcomment', function (req, res) {
-  var data = {
-    layout: 'boxpage.hbs',
-    title: 'Edit Comment',
-
-    text1: 'Edit Comment',
-    text2: 'Post',
-  };
   res.render('index', data);
 });
 
@@ -195,24 +102,9 @@ app.delete('/logout', (req, res) => {
   res.redirect('/login');
 });
 
-app.get('/', loginController.show);
+// app.get('/', loginController.show);
 
 app.use('/account', accountRouter);
 app.use('/register', registerRouter);
 app.use('/post', postRouter);
 app.use('/index-logged-in', viewRouter);
-
-// function checkAuthenticated(req, res, next) {
-//   if (req.isAuthenticated()) {
-//     return next();
-//   }
-
-//   res.redirect('/login');
-// }
-
-// function checkNotAuthenticated(req, res, next) {
-//   if (req.isAuthenticated()) {
-//     return res.redirect('/');
-//   }
-//   next();
-// }
