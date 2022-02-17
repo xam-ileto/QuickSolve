@@ -28,6 +28,7 @@
   <div class="main-box bg-white rounded-lg">
     <!-- account page intro -->
     <div class="text-center">
+	  <br><br><br>
       <i class="fas fa-question fa-7x my-5 q-red"></i>
       <h1 class="q-title text-5xl my-5 q-red">{{accountPageName}}</h1>
       <p class="q-subtitle-dgray my-2">Posts: {{numOfPosts}} • Comments: {{numOfComments}}</p>
@@ -37,12 +38,12 @@
         <a href="/account/view-details">View account details</a>
       </p>
       <p class="q-subtitle-dgray my-5 q-blue">
-      <form action="/logout?_method=DELETE" method="post">
+      <form action="/logout?_method=DELETE" method="post" class="form-center">
         <button type="submit" name="logout" value="logout">Logout</button>
       </form>
       </p>
       <p class="q-subtitle-dgray my-5 q-blue">
-      <form action="/account/delete" method="post">
+      <form action="/account/delete" method="post" class="form-center">
         <button type="submit" name="delete" value="delete">Delete account</button>
       </form>
       </p>

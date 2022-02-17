@@ -7,6 +7,12 @@
   width: 95%;
 }
 
+.form-center{
+  margin-left: 0px;
+  display: inline;
+  font-family: 'Noto Serif', serif;
+}
+
 form, button{
   margin-left: 75px;
   display: inline;
@@ -33,6 +39,7 @@ button:hover {
 }
 
 .post-comment {
+  word-wrap: break-word;
   text-align:center;
   margin-bottom: 8px;
 }
