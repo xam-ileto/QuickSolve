@@ -36,8 +36,11 @@ exports.show = async function (req, res) {
       // if url is edit-comment
       data.title = 'Edit Comment';
 
-      if (url.slice(-1) == '?') {
+      if (id.slice(-1) == '?') {
+        console.log('? at end');
         id = id.slice(0, -1);
+      } else {
+        console.log('no question mark');
       }
 
       console.log('current URL: ' + url);
