@@ -82,3 +82,15 @@ exports.getByQuery = async (query) => {
     console.log(err);
   }
 };
+
+exports.modifyAuthor = async (oldAuthorName, newAuthorName) => {
+  try {
+    result = await Post.findOneAndUpdate(
+      { accountName: oldAuthorName },
+      { accountName: newAuthorName },
+      { new: true }
+    );
+  } catch (err) {
+    console.log(err);
+  }
+};
