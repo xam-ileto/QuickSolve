@@ -21,8 +21,10 @@ const viewRouter = require('./routes/view-router.js');
 
 const authenticator = require('./authenticator.js');
 
+const { envPort, sessionKey } = require('./config');
+
 const app = express();
-const port = 3000;
+const port = envPort || 3000;
 
 app.listen(port, function () {
   console.log(`Example app listening on port ${port}`);
@@ -35,7 +37,7 @@ initializePassport(passport);
 app.use(flash());
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: sessionKey,
     resave: false,
     saveUninitialized: false,
   })
