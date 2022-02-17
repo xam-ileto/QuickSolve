@@ -3,12 +3,21 @@ var router = express.Router();
 
 // const Account = require('../database/models/Account');
 const accountController = require('../controller/account-controller');
+const authenticator = require('../authenticator.js');
 
 router.get('/create', accountController.create);
 
-router.get('/view-details', accountController.showDetails);
+router.get(
+  '/view-details',
+  authenticator.checkAuthenticated,
+  accountController.showDetails
+);
 
-router.get('/edit-details', accountController.showDetails);
+router.get(
+  '/edit-details',
+  authenticator.checkAuthenticated,
+  accountController.showDetails
+);
 
 router.post('/edit-details', accountController.editDetails);
 

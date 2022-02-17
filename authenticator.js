@@ -10,7 +10,7 @@ exports.checkAuthenticated = function (req, res, next) {
 // for pages that require client to NOT be logged in
 exports.checkNotAuthenticated = function (req, res, next) {
   if (req.isAuthenticated()) {
-    return res.redirect('/');
+    return res.redirect('/index-logged-in');
   }
   next();
 };

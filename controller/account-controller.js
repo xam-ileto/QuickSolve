@@ -76,7 +76,7 @@ exports.showAccountPage = async (req, res) => {
   data = {
     layout: 'account.hbs',
     accountPageName: accountName,
-    accountName: req.user.accountName,
+    accountName: req.isAuthenticated() ? req.user.accountName : '',
     numOfPosts: posts.length,
     numOfComments: comments.length,
     posts: posts,

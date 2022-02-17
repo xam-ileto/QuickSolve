@@ -5,7 +5,11 @@ const viewController = require('../controller/view-controller');
 const authenticator = require('../authenticator.js');
 
 // for showing index page if not logged in
-router.get('/', viewController.showInitialIndex);
+router.get(
+  '/',
+  authenticator.checkNotAuthenticated,
+  viewController.showInitialIndex
+);
 
 router.get(
   '/index-logged-in',

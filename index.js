@@ -66,7 +66,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 // ------------------HANDLEBARS ROUTING---------------------
 
 // big box pages- Login and Register
-app.get('/login', function (req, res) {
+app.get('/login', authenticator.checkNotAuthenticated, function (req, res) {
   var data = {
     layout: 'boxpage.hbs',
     title: 'Login',
@@ -80,13 +80,17 @@ app.get('/login', function (req, res) {
 
 app.post(
   '/login',
-  authenticator.checkNotAuthenticated,
   passport.authenticate('local', {
     successRedirect: '/index-logged-in',
     failureRedirect: '/login',
     failureFlash: true,
   })
 );
+
+app.delete('/logout', (req, res) => {
+  req.logOut();
+  res.redirect('/login');
+});
 
 app.use('/account', accountRouter);
 app.use('/register', registerRouter);
