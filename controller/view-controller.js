@@ -39,15 +39,11 @@ exports.showAllPosts = async function (req, res) {
 // index page shown if not logged in
 exports.showInitialIndex = async (req, res) => {
   posts = await postModel.getAllPosts();
-  // console.log(posts);
 
   newPosts = [];
-  // console.log('ELEMENTS-------------');
   for (element of posts) {
-    // console.log('***');
-    // console.log(element);
     var account = await accountModel.findOneByAccountName(element.accountName);
-    console.log(account);
+
     accountNameId = account._id.toString();
 
     post = {
@@ -72,8 +68,6 @@ exports.showInitialIndex = async (req, res) => {
 
 // for showing search results
 exports.showSearchPosts = async (req, res) => {
-  console.log(req.body.content);
-
   postsWithQuery = await postModel.getByQuery(req.body.content);
   newPosts = [];
 

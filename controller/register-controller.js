@@ -15,8 +15,6 @@ exports.show = function (req, res) {
 exports.create = function (req, res) {
   bcrypt.genSalt(10, (err, salt) => {
     bcrypt.hash(req.body.password, salt, (err, hash) => {
-      console.log(hash);
-
       data = {
         accountName: req.body.accountName,
         password: hash,

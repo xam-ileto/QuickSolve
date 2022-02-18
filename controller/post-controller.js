@@ -37,14 +37,9 @@ exports.show = async function (req, res) {
       data.title = 'Edit Comment';
 
       if (id.slice(-1) == '?') {
-        console.log('? at end');
         id = id.slice(0, -1);
-      } else {
-        console.log('no question mark');
       }
 
-      console.log('current URL: ' + url);
-      console.log('comment id: ' + id);
       comment = await commentModel.findByCommentId(id);
       data.content = comment[0].content;
       data.urlAction = '/post/edit-comment/' + id;
@@ -62,9 +57,6 @@ exports.showPostPage = async function (req, res) {
   isAuthor = false;
 
   // check if current user is author
-  console.log('author of post: ' + post.accountName);
-  console.log('logged in as: ' + req.user.accountName);
-
   if (post.accountName === req.user.accountName) {
     isAuthor = true;
   }

@@ -6,9 +6,6 @@ const passport = require('passport');
 const flash = require('express-flash');
 const session = require('express-session');
 const methodOverride = require('method-override');
-const accountController = require('./controller/account-controller.js');
-const viewController = require('./controller/view-controller.js');
-const loginController = require('./controller/login-controller.js');
 const bodyParser = require('body-parser');
 
 const express = require('express');
